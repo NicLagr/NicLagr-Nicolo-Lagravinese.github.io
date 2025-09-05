@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Centerpiece from './Centerpiece';
+import ProjectsWindow from './ProjectsWindow';
 
 const Hero = () => {
   const containerVariants = {
@@ -30,6 +31,7 @@ const Hero = () => {
     <section 
       id="main-content"
       className="min-h-screen flex items-center justify-center relative overflow-hidden noise-bg"
+      aria-label="Hero section with interactive portfolio centerpiece"
     >
       {/* Background gradients */}
       <div className="absolute inset-0 gradient-bg-vaporwave" />
@@ -62,12 +64,13 @@ const Hero = () => {
           Full-stack + DevOps + IoT • React, Node, Docker/K8s, Redshift, UX
         </motion.p>
 
-        {/* Centerpiece */}
+        {/* Centerpiece with Projects Window */}
         <motion.div
-          className="mb-16"
+          className="mb-16 relative"
           variants={itemVariants}
         >
           <Centerpiece />
+          <ProjectsWindow />
         </motion.div>
 
         {/* Call to action buttons */}
