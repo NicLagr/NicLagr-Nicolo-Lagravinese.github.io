@@ -104,21 +104,21 @@ const Centerpiece = () => {
           boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
         }}
       >
-        {/* Glass Orb */}
-        <div className="w-64 h-64 mx-auto glass-card rounded-full flex items-center justify-center relative overflow-hidden group cursor-pointer">
-          {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-vaporwave-pink/20 via-vaporwave-purple/20 to-vaporwave-teal/20 rounded-full" />
+        {/* Enhanced Glass Orb with CRT and Glow effects */}
+        <div className="w-64 h-64 mx-auto glass-card glass glow crt rounded-full flex items-center justify-center relative overflow-hidden group cursor-pointer">
+          {/* Enhanced gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-vw-pink/30 via-vw-purple/25 to-vw-cyan/20 rounded-full" />
           
-          {/* Noise overlay */}
-          <div className="absolute inset-0 noise-bg rounded-full" />
+          {/* Noise overlay with CRT scanlines */}
+          <div className="absolute inset-0 noise-bg crt rounded-full" />
           
-          {/* Inner glow */}
-          <div className="absolute inset-4 bg-gradient-to-br from-vaporwave-pink/10 to-transparent rounded-full" />
+          {/* Enhanced inner glow with aberration */}
+          <div className="absolute inset-4 bg-gradient-to-br from-vw-pink/15 to-transparent rounded-full aberration" />
           
-          {/* Center content */}
+          {/* Enhanced center content with vaporwave styling */}
           <div className="relative z-10 text-center">
             <motion.div
-              className="text-2xl font-bold text-gradient-vaporwave mb-2"
+              className="text-2xl font-bold vw-gradient-text aberration mb-2"
               animate={prefersReducedMotion ? {} : {
                 scale: [1, 1.05, 1],
               }}
@@ -130,20 +130,31 @@ const Centerpiece = () => {
             >
               Explore
             </motion.div>
-            <div className="text-sm text-text-secondary">
+            <div className="text-sm text-vw-ink/80">
               Interactive Portfolio
             </div>
           </div>
 
-          {/* Hover ripple effect */}
+          {/* Enhanced hover ripple effect with vaporwave colors */}
           <motion.div
-            className="absolute inset-0 rounded-full border border-vaporwave-pink/30"
+            className="absolute inset-0 rounded-full border border-vw-pink/40 glow"
             initial={{ scale: 1, opacity: 0 }}
             animate={isHovered ? { 
               scale: [1, 1.2, 1.4], 
-              opacity: [0.5, 0.2, 0] 
+              opacity: [0.6, 0.3, 0] 
             } : {}}
             transition={{ duration: 1.5, repeat: Infinity }}
+          />
+          
+          {/* Additional CRT glow ring */}
+          <motion.div
+            className="absolute inset-2 rounded-full border border-vw-cyan/20"
+            initial={{ scale: 1, opacity: 0 }}
+            animate={isHovered ? { 
+              scale: [1, 1.1, 1.3], 
+              opacity: [0.4, 0.2, 0] 
+            } : {}}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
           />
         </div>
 
@@ -175,9 +186,9 @@ const Centerpiece = () => {
             >
               <Link to={project.link}>
                 <motion.div
-                  className={`w-16 h-16 rounded-full glass-card bg-gradient-to-br ${project.color} flex items-center justify-center text-xs font-medium text-white text-center p-2 cursor-pointer shadow-lg`}
+                  className={`w-16 h-16 rounded-full glass-card glass bg-gradient-to-br ${project.color} flex items-center justify-center text-xs font-medium text-white text-center p-2 cursor-pointer shadow-glow-purple`}
                   whileHover={{ 
-                    boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)" 
+                    boxShadow: "0 0 25px rgba(255, 79, 216, 0.6)" 
                   }}
                   whileTap={{ scale: 0.95 }}
                 >

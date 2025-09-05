@@ -8,14 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Vaporwave/Y2K theme
+        // Enhanced Vaporwave/Y2K theme
         vaporwave: {
-          pink: '#ff00ff',
-          purple: '#8a2be2',
+          pink: '#ff4fd8',
+          purple: '#6c59ff', 
+          cyan: '#33e1ff',
           teal: '#00ffff',
           blue: '#4169e1',
           navy: '#0a0a23',
           black: '#000000',
+          deep: '#0a0518',
+        },
+        vw: {
+          ink: "#e2d1ff",
+          pink: "#ff4fd8",
+          purple: "#6c59ff",
+          cyan: "#33e1ff",
+          deep: "#0a0518",
         },
         // Modern Minimal theme
         modern: {
@@ -74,6 +83,12 @@ module.exports = {
       },
       backdropBlur: {
         xs: '2px',
+      },
+      boxShadow: {
+        glow: "0 0 30px rgba(108,89,255,.35)",
+        'glow-pink': "0 0 20px rgba(255,79,216,.6)",
+        'glow-purple': "0 0 20px rgba(108,89,255,.6)", 
+        'glow-cyan': "0 0 20px rgba(51,225,255,.6)",
       },
       screens: {
         'xs': '475px',

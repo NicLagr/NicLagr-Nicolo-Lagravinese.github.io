@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "98.css";
+@import "./vendor/aesthetic.css";
+@import "./vaporwave.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Theme Variables */
 :root {
-  /* Vaporwave Theme (default) */
-  --bg-primary: #0a0a23;
-  --bg-secondary: #000000;
-  --bg-glass: rgba(255, 0, 255, 0.1);
-  --text-primary: #ffffff;
+  /* Enhanced Vaporwave Theme (default) */
+  --bg-primary: #0a0518;
+  --bg-secondary: #000814;
+  --bg-glass: rgba(255, 79, 216, 0.1);
+  --text-primary: #e2d1ff;
   --text-secondary: #e0e0e0;
-  --text-accent: #ff00ff;
-  --accent-primary: #ff00ff;
-  --accent-secondary: #00ffff;
-  --accent-tertiary: #8a2be2;
-  --glow-color: rgba(255, 0, 255, 0.5);
+  --text-accent: #ff4fd8;
+  --accent-primary: #ff4fd8;
+  --accent-secondary: #33e1ff;
+  --accent-tertiary: #6c59ff;
+  --glow-color: rgba(255, 79, 216, 0.5);
   --border-color: rgba(255, 255, 255, 0.1);
   
   /* Noise/grain pattern */
