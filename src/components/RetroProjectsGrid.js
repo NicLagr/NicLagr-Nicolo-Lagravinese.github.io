@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RetroWindow from './RetroWindow';
 
+// Import XP icons
+import controlPanelIcon from '../assets/xp-icons/control-panel.png';
+import factoryIcon from '../assets/xp-icons/factory.png';
+import diamondIcon from '../assets/xp-icons/diamond.png';
+import hospitalIcon from '../assets/xp-icons/hospital.png';
+import gamepadIcon from '../assets/xp-icons/gamepad.png';
+import floppyIcon from '../assets/xp-icons/floppy.png';
+import folderIcon from '../assets/xp-icons/folder.png';
+import globeIcon from '../assets/xp-icons/globe.png';
+import toolsIcon from '../assets/xp-icons/tools.png';
+import briefcaseIcon from '../assets/xp-icons/briefcase.png';
+
 const RetroProjectsGrid = ({ onBack }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('all');
@@ -11,7 +23,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       id: 1,
       title: 'Mission Control 3.0',
       category: 'web',
-      icon: '🎛️',
+      icon: controlPanelIcon,
       year: '2025',
       company: 'Tulip Interfaces',
       tech: ['React SPA', 'Node.js/Express', 'Redshift', 'Kubernetes', 'Helm', 'Argo CD'],
@@ -24,7 +36,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       id: 2,
       title: 'TEC Demo Engineering',
       category: 'hardware',
-      icon: '🏭',
+      icon: factoryIcon,
       year: '2025',
       company: 'Tulip Interfaces',
       tech: ['Hardware', 'Node-RED', 'MQTT', 'OPC-UA', 'Cognex'],
@@ -37,7 +49,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       id: 3,
       title: 'Jewelry Management Platform',
       category: 'ecommerce',
-      icon: '💎',
+      icon: diamondIcon,
       year: '2025',
       company: 'Independent Project',
       tech: ['React', 'Node.js/Express', 'SQL', 'REST APIs'],
@@ -50,7 +62,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       id: 4,
       title: 'Nurture Nest',
       category: 'health',
-      icon: '🏥',
+      icon: hospitalIcon,
       year: '2025',
       company: 'Social Impact Project',
       tech: ['Figma', 'Frontend', 'Health UX'],
@@ -63,7 +75,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       id: 5,
       title: 'Game Development Portfolio',
       category: 'game',
-      icon: '🎮',
+      icon: gamepadIcon,
       year: '2024',
       company: 'Personal Projects',
       tech: ['Unity 3D', 'Java', 'C#'],
@@ -76,7 +88,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       id: 6,
       title: 'Portfolio Webpage',
       category: 'web',
-      icon: '💾',
+      icon: floppyIcon,
       year: '2025',
       company: 'Personal Projects',
       tech: ['React', 'Tailwind CSS', 'Framer Motion', '98.css', 'Steam API'],
@@ -88,12 +100,12 @@ const RetroProjectsGrid = ({ onBack }) => {
   ];
 
   const categories = [
-    { id: 'all', label: 'ALL_PROJECTS.exe', icon: '📁' },
-    { id: 'web', label: 'WEB_APPS.dir', icon: '🌐' },
-    { id: 'hardware', label: 'HARDWARE.dir', icon: '🔧' },
-    { id: 'ecommerce', label: 'BUSINESS.dir', icon: '💼' },
-    { id: 'health', label: 'HEALTH.dir', icon: '🏥' },
-    { id: 'game', label: 'GAMES.dir', icon: '🎮' }
+    { id: 'all', label: 'ALL_PROJECTS.exe', icon: folderIcon },
+    { id: 'web', label: 'WEB_APPS.dir', icon: globeIcon },
+    { id: 'hardware', label: 'HARDWARE.dir', icon: toolsIcon },
+    { id: 'ecommerce', label: 'BUSINESS.dir', icon: briefcaseIcon },
+    { id: 'health', label: 'HEALTH.dir', icon: hospitalIcon },
+    { id: 'game', label: 'GAMES.dir', icon: gamepadIcon }
   ];
 
   const filteredProjects = filter === 'all' 
@@ -149,7 +161,7 @@ const RetroProjectsGrid = ({ onBack }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {category.icon} {category.label}
+              <img src={category.icon} alt={category.label} className="w-4 h-4 inline mr-1" /> {category.label}
             </motion.button>
           ))}
         </div>
@@ -191,7 +203,9 @@ const RetroProjectsGrid = ({ onBack }) => {
               <div className={`bg-gradient-to-r ${project.color} p-4 text-center relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="relative z-10">
-                  <div className="text-4xl mb-2">{project.icon}</div>
+                  <div className="mb-2 flex justify-center">
+                    <img src={project.icon} alt={project.title} className="w-12 h-12" />
+                  </div>
                   <div className="font-bold text-white">{project.title}</div>
                   <div className="text-sm opacity-90">{project.year}</div>
                 </div>
@@ -257,7 +271,9 @@ const RetroProjectsGrid = ({ onBack }) => {
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Project Image */}
                     <div className={`bg-gradient-to-br ${selectedProject.color} rounded-lg p-8 text-center relative overflow-hidden`}>
-                      <div className="text-8xl mb-4">{selectedProject.icon}</div>
+                      <div className="mb-4 flex justify-center">
+                        <img src={selectedProject.icon} alt={selectedProject.title} className="w-20 h-20" />
+                      </div>
                       <div className="text-white font-bold text-xl">{selectedProject.title}</div>
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[length:12px_12px] opacity-20"></div>
                     </div>

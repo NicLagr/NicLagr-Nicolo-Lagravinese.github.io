@@ -1,6 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// Import XP icons
+import emailIcon from '../assets/xp-icons/email.png';
+import linkIcon from '../assets/xp-icons/link.png';
+import briefcaseIcon from '../assets/xp-icons/briefcase.png';
+import targetIcon from '../assets/xp-icons/target.png';
+import globeIcon from '../assets/xp-icons/globe.png';
+import clockIcon from '../assets/xp-icons/clock.png';
+import computerIcon from '../assets/xp-icons/computer.png';
+
 const Contact = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,21 +39,21 @@ const Contact = () => {
       name: "Email",
       value: "nicolo.lagravinese@example.com",
       href: "mailto:nicolo.lagravinese@example.com",
-      icon: "📧",
+      icon: emailIcon,
       description: "Best for project inquiries and opportunities"
     },
     {
       name: "GitHub",
       value: "github.com/NicLagr",
       href: "https://github.com/NicLagr",
-      icon: "🔗",
+      icon: linkIcon,
       description: "Check out my code and contributions"
     },
     {
       name: "LinkedIn",
       value: "linkedin.com/in/nicololagravinese",
       href: "https://linkedin.com/in/nicololagravinese",
-      icon: "💼",
+      icon: briefcaseIcon,
       description: "Professional network and experience"
     }
   ];
@@ -91,8 +100,8 @@ const Contact = () => {
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {method.icon}
+                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                  <img src={method.icon} alt={method.name} className="w-12 h-12" />
                 </div>
                 <h3 className="heading-3 text-text-primary mb-2 group-hover:text-accent-primary transition-colors duration-300">
                   {method.name}
@@ -116,7 +125,7 @@ const Contact = () => {
           >
             <div className="flex items-center justify-center mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-vaporwave-pink to-vaporwave-purple rounded-full flex items-center justify-center mr-4">
-                <span className="text-white text-xl">🎯</span>
+                <img src={targetIcon} alt="Target" className="w-6 h-6" />
               </div>
               <h3 className="heading-3 text-text-primary">
                 Currently Available
@@ -140,9 +149,9 @@ const Contact = () => {
               Response time: Usually within 24 hours
             </p>
             <div className="flex justify-center space-x-6 text-sm text-text-secondary">
-              <span>🌍 Boston, MA</span>
-              <span>🕐 EST Timezone</span>
-              <span>💻 Remote Friendly</span>
+              <span className="flex items-center"><img src={globeIcon} alt="Globe" className="w-4 h-4 mr-1" /> Boston, MA</span>
+              <span className="flex items-center"><img src={clockIcon} alt="Clock" className="w-4 h-4 mr-1" /> EST Timezone</span>
+              <span className="flex items-center"><img src={computerIcon} alt="Computer" className="w-4 h-4 mr-1" /> Remote Friendly</span>
             </div>
           </motion.div>
         </div>

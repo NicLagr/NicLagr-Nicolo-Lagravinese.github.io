@@ -3,6 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import RetroWindow from './RetroWindow';
 
+// Import XP icons
+import rocketIcon from '../assets/xp-icons/rocket.png';
+import diamondIcon from '../assets/xp-icons/diamond.png';
+import lightbulbIcon from '../assets/xp-icons/lightbulb.png';
+import lightningIcon from '../assets/xp-icons/lightning.png';
+
 const ProjectsWindow = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -20,19 +26,19 @@ const ProjectsWindow = () => {
   const projects = [
     {
       name: "Mission Control 3.0",
-      icon: "🚀",
+      icon: rocketIcon,
       link: "/portfolio#mission-control",
       color: "text-vw-pink"
     },
     {
       name: "TEC Demos",
-      icon: "⚡",
+      icon: lightningIcon,
       link: "/portfolio#tec-demos", 
       color: "text-vw-cyan"
     },
     {
       name: "Jewelry Platform",
-      icon: "💎",
+      icon: diamondIcon,
       link: "/portfolio#jewelry-platform",
       color: "text-vw-purple"
     }
@@ -69,9 +75,7 @@ const ProjectsWindow = () => {
                 to={project.link}
                 className="flex items-center gap-3 p-2 rounded hover:bg-white/5 transition-colors group"
               >
-                <span className="text-lg" role="img" aria-label={`${project.name} icon`}>
-                  {project.icon}
-                </span>
+                <img src={project.icon} alt={`${project.name} icon`} className="w-5 h-5" />
                 <div className="flex-1">
                   <div className={`font-medium ${project.color} group-hover:aberration transition-all`}>
                     {project.name}
@@ -108,7 +112,7 @@ const ProjectsWindow = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
         >
-          💡 Drag me around!
+          <img src={lightbulbIcon} alt="Tip" className="w-4 h-4 inline mr-1" /> Drag me around!
         </motion.div>
       )}
     </motion.div>

@@ -6,10 +6,11 @@ export default function RetroWindow({
   children, 
   className, 
   onClose, 
+  onMinimize,
   isActive = true,
-  showStatusBar = true 
+  showStatusBar = true,
+  onDragStart 
 }) {
-  const [isMinimized, setIsMinimized] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
 
   return (
@@ -19,8 +20,8 @@ export default function RetroWindow({
       }`}
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ 
-        scale: isMinimized ? 0.1 : isMaximized ? 1.2 : 1, 
-        opacity: isMinimized ? 0 : 1 
+        scale: isMaximized ? 1.2 : 1, 
+        opacity: 1 
       }}
       transition={{ duration: 0.3 }}
       style={{
@@ -28,57 +29,62 @@ export default function RetroWindow({
         background: 'linear-gradient(135deg, #c0c0c0 0%, #808080 100%)'
       }}
     >
-      <div className="title-bar bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="title-bar-text font-bold text-sm flex items-center gap-2">
+      <div 
+        className="title-bar bg-gradient-to-r from-blue-600 to-blue-800 text-white cursor-move"
+        onMouseDown={onDragStart}
+      >
+        <div className="title-bar-text font-bold text-sm flex items-center gap-2 pointer-events-none">
           <span className="text-yellow-300">●</span>
           {title}
         </div>
-        <div className="title-bar-controls flex gap-1">
+        <div className="title-bar-controls flex gap-1 pointer-events-auto">
           <motion.button 
             aria-label="Minimize"
-            className="w-4 h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200"
+            className="w-4 h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => setIsMinimized(!isMinimized)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onMinimize && onMinimize();
+            }}
           >
-            _
           </motion.button>
           <motion.button 
             aria-label="Maximize"
-            className="w-4 h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200"
+            className="w-4 h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => setIsMaximized(!isMaximized)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMaximized(!isMaximized);
+            }}
           >
-            □
           </motion.button>
           <motion.button 
             aria-label="Close"
-            className="w-4 h-4 bg-red-500 border border-red-700 text-white text-xs flex items-center justify-center hover:bg-red-400"
+            className="w-4 h-4 bg-red-500 border border-red-700 text-white text-xs flex items-center justify-center hover:bg-red-400 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={onClose}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose && onClose();
+            }}
           >
-            ×
           </motion.button>
         </div>
       </div>
       
-      {!isMinimized && (
-        <>
-          <div className="window-body bg-gray-100 overflow-auto" style={{ minHeight: '200px' }}>
-            {children}
-          </div>
-          
-          {showStatusBar && (
-            <div className="status-bar bg-gray-200 border-t border-gray-400">
-              <p className="status-bar-field text-xs">Ready</p>
-              <p className="status-bar-field text-xs">
-                {new Date().toLocaleTimeString()}
-              </p>
-            </div>
-          )}
-        </>
+      <div className="window-body bg-gray-100 overflow-auto pointer-events-auto" style={{ minHeight: '200px' }}>
+        {children}
+      </div>
+      
+      {showStatusBar && (
+        <div className="status-bar bg-gray-200 border-t border-gray-400">
+          <p className="status-bar-field text-xs">Ready</p>
+          <p className="status-bar-field text-xs">
+            {new Date().toLocaleTimeString()}
+          </p>
+        </div>
       )}
     </motion.div>
   );

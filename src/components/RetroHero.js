@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useWinXPCursor } from './WinXPCursor';
 
 const RetroHero = ({ onNavigate }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [glitchText, setGlitchText] = useState('NICOLÒ LAGRAVINESE');
   const [isGlitching, setIsGlitching] = useState(false);
   const [steamGames, setSteamGames] = useState('???');
+  const { showLoading, hideLoading } = useWinXPCursor();
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -282,7 +284,13 @@ const RetroHero = ({ onNavigate }) => {
             className="px-8 py-3 bg-gradient-to-r from-vw-pink to-vw-purple text-white font-bold rounded-lg shadow-lg border border-white/20 hover:shadow-xl transition-all"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 79, 216, 0.5)' }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onNavigate && onNavigate('projects')}
+            onClick={() => {
+              showLoading();
+              setTimeout(() => {
+                onNavigate && onNavigate('projects');
+                hideLoading();
+              }, 1000);
+            }}
           >
             LAUNCH PORTFOLIO.EXE
           </motion.button>
@@ -291,7 +299,13 @@ const RetroHero = ({ onNavigate }) => {
             className="px-8 py-3 bg-transparent border-2 border-vw-cyan text-vw-cyan font-bold rounded-lg hover:bg-vw-cyan hover:text-black transition-all"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(51, 225, 255, 0.3)' }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onNavigate && onNavigate('desktop')}
+            onClick={() => {
+              showLoading();
+              setTimeout(() => {
+                onNavigate && onNavigate('desktop');
+                hideLoading();
+              }, 800);
+            }}
           >
             ENTER DESKTOP
           </motion.button>

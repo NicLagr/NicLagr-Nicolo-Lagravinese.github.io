@@ -309,7 +309,10 @@
 .win98-button {
   background: linear-gradient(135deg, #dfdfdf 0%, #c0c0c0 50%, #a0a0a0 100%);
   border: 2px outset #c0c0c0;
-  font-family: 'MS Sans Serif', sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-smooth: never;
   font-size: 11px;
   padding: 4px 8px;
   cursor: pointer;

@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { skills, aboutText, availabilityText } from '../data/skills';
 
+// Import XP icons
+import calendarIcon from '../assets/xp-icons/calendar.png';
+import documentIcon from '../assets/xp-icons/document.png';
+
 const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -98,7 +102,7 @@ const About = () => {
             >
               <div className="flex items-center mb-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-vaporwave-pink to-vaporwave-purple rounded-lg flex items-center justify-center mr-3">
-                  <span className="text-white text-sm font-bold">📅</span>
+                  <img src={calendarIcon} alt="Calendar" className="w-4 h-4" />
                 </div>
                 <h3 className="heading-3 text-text-primary">
                   Availability
@@ -123,7 +127,7 @@ const About = () => {
                 download
                 className="btn-primary inline-flex items-center space-x-2"
               >
-                <span>📄</span>
+                <img src={documentIcon} alt="Document" className="w-5 h-5" />
                 <span>Download Résumé (PDF)</span>
               </a>
             </motion.div>

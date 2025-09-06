@@ -8,7 +8,10 @@ section {
 }
 
 .who_am_I {
-    font-family: Cinzel;
+    font-family: 'Tahoma', sans-serif;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    font-smooth: never;
 }
 
 .has-first-color {
