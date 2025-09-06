@@ -375,6 +375,16 @@ body::after {
   background: var(--accent-secondary);
 }
 
+/* Better center the maximize button square symbol */
+.title-bar-controls button[aria-label="Maximize"] {
+  background-position: center center !important;
+}
+
+/* Better center the close button X symbol */
+.title-bar-controls button[aria-label="Close"] {
+  background-position: center center !important;
+}
+
 /* Print styles */
 @media print {
   .no-print {
