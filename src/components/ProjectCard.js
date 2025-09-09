@@ -32,13 +32,18 @@ const ProjectCard = ({ project, index }) => {
   };
 
   const handleProjectClick = (e) => {
+    console.log('Project clicked:', project.title);
+    console.log('Includes jewelry?', project.title.toLowerCase().includes('jewelry'));
+    
     // Check if this is the jewelry platform project
     if (project.title.toLowerCase().includes('jewelry')) {
+      console.log('Preventing default and showing dialog');
       e.preventDefault();
       setShowErrorDialog(true);
       return false;
     }
     // For other projects, let the default link behavior happen
+    console.log('Allowing default behavior');
     return true;
   };
 
@@ -150,7 +155,10 @@ const ProjectCard = ({ project, index }) => {
       {/* Windows 98 Error Dialog */}
       <Win98ErrorDialog
         isOpen={showErrorDialog}
-        onClose={() => setShowErrorDialog(false)}
+        onClose={() => {
+          console.log('Closing dialog');
+          setShowErrorDialog(false);
+        }}
         title="Project Status"
         message="The Jewelry/Retail Management Platform is currently in production and will be available for showcase soon. Please check back later for live demo access."
       />

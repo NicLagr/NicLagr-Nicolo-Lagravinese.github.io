@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Win98ErrorDialog = ({ isOpen, onClose, title = "Error", message }) => {
+  console.log('Win98ErrorDialog render - isOpen:', isOpen);
+  
   if (!isOpen) return null;
 
   return (
