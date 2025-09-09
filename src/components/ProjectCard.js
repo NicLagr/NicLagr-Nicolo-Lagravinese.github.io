@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Win98ErrorDialog from './Win98ErrorDialog';
 
 const ProjectCard = ({ project, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showErrorDialog, setShowErrorDialog] = useState(false);
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -27,6 +29,17 @@ const ProjectCard = ({ project, index }) => {
         ease: "easeOut"
       }
     }
+  };
+
+  const handleProjectClick = (e) => {
+    // Check if this is the jewelry platform project
+    if (project.title.toLowerCase().includes('jewelry')) {
+      e.preventDefault();
+      setShowErrorDialog(true);
+      return false;
+    }
+    // For other projects, let the default link behavior happen
+    return true;
   };
 
   return (
@@ -124,6 +137,7 @@ const ProjectCard = ({ project, index }) => {
           
           <motion.a
             href={project.link}
+            onClick={handleProjectClick}
             className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
@@ -132,6 +146,14 @@ const ProjectCard = ({ project, index }) => {
           </motion.a>
         </div>
       </div>
+
+      {/* Windows 98 Error Dialog */}
+      <Win98ErrorDialog
+        isOpen={showErrorDialog}
+        onClose={() => setShowErrorDialog(false)}
+        title="Project Status"
+        message="The Jewelry/Retail Management Platform is currently in production and will be available for showcase soon. Please check back later for live demo access."
+      />
     </motion.div>
   );
 };
