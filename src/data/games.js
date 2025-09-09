@@ -50,8 +50,7 @@ export const games = [
         '/games/wota/screen-4.png',
         '/games/wota/concept-1.png',
         '/games/wota/concept-2.png'
-      ],
-      trailer: '/games/wota/WotA_Trailer.mp4'
+      ]
     }
   },
   {
