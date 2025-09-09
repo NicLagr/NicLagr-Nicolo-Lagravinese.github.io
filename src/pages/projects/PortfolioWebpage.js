@@ -10,7 +10,7 @@ const PortfolioWebpage = ({ onBack }) => {
     subtitle: "Interactive Retro-Themed Personal Portfolio",
     company: "Personal Project",
     role: "Full-Stack Developer & UX Designer",
-    timeframe: "December 2024 - January 2025",
+    timeframe: "Aug - Sep 2025",
     status: "Live Production",
     location: "GitHub Pages Deployment",
     
@@ -21,11 +21,11 @@ const PortfolioWebpage = ({ onBack }) => {
     solution: "Developed a dual-experience portfolio featuring a nostalgic Windows 98 desktop interface alongside modern project showcases. Implemented comprehensive accessibility features, performance optimizations, and a unique vaporwave aesthetic that reflects both technical skills and creative design sensibilities.",
     
     impact: [
-      "Achieved 95+ Lighthouse scores across all performance, accessibility, SEO, and best practices metrics",
-      "Created unique desktop OS experience with draggable windows, interactive file system, and retro cursors",
-      "Implemented comprehensive accessibility features including keyboard navigation and reduced motion support",
+      "Created unique desktop OS experience with draggable windows and retro interface elements",
       "Built responsive design system supporting both retro and modern aesthetic preferences",
-      "Established personal brand presence with memorable visual identity and interactive storytelling"
+      "Implemented dual theme system with CSS custom properties for user preference management",
+      "Established memorable personal brand with nostalgic Windows 98 aesthetic",
+      "Deployed functional portfolio showcasing React development and creative design skills"
     ],
 
     designPhilosophy: {
@@ -73,7 +73,7 @@ const PortfolioWebpage = ({ onBack }) => {
     technicalArchitecture: {
       frontend: ["React 18", "Framer Motion", "Tailwind CSS", "React Router", "React Helmet"],
       buildTools: ["Create React App", "PostCSS", "Autoprefixer", "CSS Custom Properties"],
-      deployment: ["GitHub Pages", "GitHub Actions CI/CD", "Custom Domain Setup"],
+      deployment: ["GitHub Pages", "Manual Deployment via gh-pages CLI"],
       performance: ["Code Splitting", "Lazy Loading", "Image Optimization", "Bundle Analysis"],
       accessibility: ["ARIA Labels", "Focus Management", "Keyboard Navigation", "Screen Reader Support"]
     },
@@ -116,50 +116,31 @@ const PortfolioWebpage = ({ onBack }) => {
         phase: "Research & Planning",
         duration: "Week 1",
         activities: [
-          "Analyzed 50+ developer portfolios for best practices and differentiation opportunities",
-          "Created mood boards combining retro computing aesthetics with modern web design",
-          "Defined technical requirements: React, accessibility, performance, SEO optimization",
-          "Sketched wireframes for both desktop OS and mobile-responsive layouts"
+          "Researched developer portfolios for inspiration and differentiation opportunities",
+          "Decided on Windows 98/retro computing theme for unique positioning",
+          "Defined technical stack: React, Tailwind CSS, Framer Motion, GitHub Pages",
+          "Created basic wireframes and planned component structure"
         ]
       },
       {
-        phase: "Design System Development", 
+        phase: "Visual Design & System Development", 
         duration: "Week 2",
         activities: [
-          "Developed comprehensive color palette and typography system",
-          "Created component library with Tailwind CSS utilities and custom components",
-          "Implemented CSS custom properties for dynamic theming capabilities",
-          "Designed icon system using retro Windows 98/XP-style iconography"
+          "Developed vaporwave color palette and retro aesthetic elements",
+          "Implemented CSS custom properties for dual theme system",
+          "Created component library with Windows 98-style UI elements",
+          "Gathered retro assets and icons for authentic desktop experience"
         ]
       },
       {
-        phase: "Core Development",
-        duration: "Weeks 3-4", 
+        phase: "Core Development & Implementation",
+        duration: "Week 3",
         activities: [
-          "Built React component architecture with reusable UI elements",
-          "Implemented desktop OS interface with window management system",
-          "Created routing system for project showcases and navigation",
-          "Developed responsive design system for mobile and desktop experiences"
-        ]
-      },
-      {
-        phase: "Content Integration",
-        duration: "Week 5",
-        activities: [
-          "Created comprehensive project documentation and media galleries",
-          "Implemented dynamic content management for easy project updates",
-          "Added SEO optimization with React Helmet and meta tag management", 
-          "Integrated analytics and performance monitoring tools"
-        ]
-      },
-      {
-        phase: "Testing & Optimization",
-        duration: "Week 6",
-        activities: [
-          "Conducted comprehensive accessibility testing with screen readers",
-          "Performed cross-browser testing and mobile device compatibility",
-          "Optimized performance for 95+ Lighthouse scores across all metrics",
-          "Implemented CI/CD pipeline with automated testing and deployment"
+          "Built React component architecture and routing system",
+          "Implemented desktop OS interface with draggable windows",
+          "Created project showcase pages with content management",
+          "Iteratively tested interface usability with peers, analyzing navigation patterns and engagement metrics",
+          "Added responsive design and deployed to GitHub Pages"
         ]
       }
     ],
@@ -211,11 +192,11 @@ const PortfolioWebpage = ({ onBack }) => {
     ],
 
     futureEnhancements: [
-      "Dark/Light mode toggle in addition to theme system",
+      "Comprehensive accessibility testing with screen readers and keyboard navigation",
+      "Performance optimization to achieve 95+ Lighthouse scores",
+      "Contact form with email integration",
       "Blog integration with markdown support for technical articles",
       "Interactive code playground for demonstrating programming skills",
-      "Visitor analytics dashboard with retro-themed data visualization",
-      "Contact form with email integration and spam protection",
       "Progressive Web App features for offline functionality"
     ],
 
