@@ -39,7 +39,9 @@ const ProjectCard = ({ project, index }) => {
     if (project.title.toLowerCase().includes('jewelry')) {
       console.log('Preventing default and showing dialog');
       e.preventDefault();
+      console.log('Setting showErrorDialog to true');
       setShowErrorDialog(true);
+      console.log('showErrorDialog state should now be true');
       return false;
     }
     // For other projects, let the default link behavior happen
@@ -140,17 +142,41 @@ const ProjectCard = ({ project, index }) => {
             </motion.button>
           )}
           
-          <motion.a
-            href={project.link}
-            onClick={handleProjectClick}
-            className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible"
-            whileHover={{ scale: 1.05, x: 5 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {project.ctaLabel} →
-          </motion.a>
+          {project.title.toLowerCase().includes('jewelry') ? (
+            <motion.button
+              onClick={handleProjectClick}
+              className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible bg-transparent border-none cursor-pointer"
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {project.ctaLabel} →
+            </motion.button>
+          ) : (
+            <motion.a
+              href={project.link}
+              onClick={handleProjectClick}
+              className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible"
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {project.ctaLabel} →
+            </motion.a>
+          )}
         </div>
       </div>
+
+      {/* Test button for jewelry project */}
+      {project.title.toLowerCase().includes('jewelry') && (
+        <button 
+          onClick={() => {
+            console.log('Test button clicked - setting dialog to true');
+            setShowErrorDialog(true);
+          }}
+          style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 999, background: 'red', color: 'white', padding: '5px' }}
+        >
+          TEST DIALOG
+        </button>
+      )}
 
       {/* Windows 98 Error Dialog */}
       <Win98ErrorDialog
