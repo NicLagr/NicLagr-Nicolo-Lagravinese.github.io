@@ -17,6 +17,7 @@ import hospitalIcon from '../assets/xp-icons/hospital.png';
 import gamepadIcon from '../assets/xp-icons/gamepad.png';
 import githubIcon from '../assets/xp-icons/github.png';
 import graduationIcon from '../assets/xp-icons/graduation.png';
+import computerIcon from '../assets/xp-icons/computer.png';
 
 const DesktopOS = ({ children, onNavigate }) => {
   const [time, setTime] = useState(new Date());
@@ -398,11 +399,12 @@ const ProjectsWindow = () => (
   <div className="p-4 h-full bg-gray-100 overflow-auto">
     <div className="grid grid-cols-2 gap-4">
       {[
-        { name: "Mission Control 3.0", icon: controlPanelIcon, status: "Active", company: "Tulip Interfaces", year: "2025" },
-        { name: "TEC Demo Engineering", icon: factoryIcon, status: "Active", company: "Tulip Interfaces", year: "2025" },
+        { name: "Mission Control 3.0", icon: controlPanelIcon, status: "Archived", company: "Tulip Interfaces", year: "2025" },
+        { name: "TEC Demo Engineering", icon: factoryIcon, status: "Archived", company: "Tulip Interfaces", year: "2025" },
         { name: "Jewelry Management Platform", icon: diamondIcon, status: "Active", company: "Independent", year: "2025" },
         { name: "Nurture Nest", icon: hospitalIcon, status: "Dev", company: "Social Impact", year: "2025" },
-        { name: "Game Development Portfolio", icon: gamepadIcon, status: "Live", company: "Personal", year: "2024" }
+        { name: "Game Development Portfolio", icon: gamepadIcon, status: "Live", company: "Personal", year: "2024" },
+        { name: "Portfolio Webpage", icon: computerIcon, status: "Live", company: "Personal", year: "2025" }
       ].map((project, i) => (
         <div key={i} className="bg-white p-3 rounded shadow border">
           <div className="mb-2 flex justify-center">
@@ -414,6 +416,7 @@ const ProjectsWindow = () => (
             project.status === 'Live' ? 'bg-green-100 text-green-800' :
             project.status === 'Active' ? 'bg-blue-100 text-blue-800' :
             project.status === 'Dev' ? 'bg-yellow-100 text-yellow-800' :
+            project.status === 'Archived' ? 'bg-gray-200 text-gray-700' :
             'bg-gray-100 text-gray-800'
           }`}>
             {project.status}

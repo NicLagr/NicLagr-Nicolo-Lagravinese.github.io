@@ -8,6 +8,7 @@ import rocketIcon from '../assets/xp-icons/rocket.png';
 import diamondIcon from '../assets/xp-icons/diamond.png';
 import lightbulbIcon from '../assets/xp-icons/lightbulb.png';
 import lightningIcon from '../assets/xp-icons/lightning.png';
+import computerIcon from '../assets/xp-icons/computer.png';
 
 const ProjectsWindow = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -41,6 +42,12 @@ const ProjectsWindow = () => {
       icon: diamondIcon,
       link: "/portfolio#jewelry-platform",
       color: "text-vw-purple"
+    },
+    {
+      name: "Portfolio Webpage",
+      icon: computerIcon,
+      link: "/portfolio#portfolio-webpage",
+      color: "text-vw-teal"
     }
   ];
 
@@ -60,7 +67,7 @@ const ProjectsWindow = () => {
       <RetroWindow title="Projects.exe" className="glass glow">
         <div className="p-3 space-y-3 font-mono text-sm">
           <div className="flex items-center gap-2 text-vw-ink mb-3">
-            <span className="text-vw-pink">></span>
+            <span className="text-vw-pink"></span>
             <span className="aberration">Select project to explore</span>
           </div>
           
@@ -98,7 +105,7 @@ const ProjectsWindow = () => {
           <div className="mt-4 pt-3 border-t border-white/10">
             <div className="text-xs text-vw-ink/50 flex items-center gap-2">
               <span className="w-2 h-2 bg-vw-pink rounded-full animate-pulse"></span>
-              <span>3 projects loaded</span>
+              <span>4 projects loaded</span>
             </div>
           </div>
         </div>

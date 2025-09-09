@@ -1,25 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
-  useLocation,
 } from "react-router-dom";
-import withRouter from "../hooks/withRouter";
-import AppRoutes from "./routes";
-import Header from "../components/Header";
-import CursorTrail from "../components/CursorTrail";
-import Footer from "../components/Footer";
 import RetroHome from "../pages/home/RetroHome";
 import WinXPCursor from "../components/WinXPCursor";
 import "../styles/globals.css";
 
-function _ScrollToTop(props) {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return props.children;
-}
-const ScrollToTop = withRouter(_ScrollToTop);
 
 export default function App() {
   return (

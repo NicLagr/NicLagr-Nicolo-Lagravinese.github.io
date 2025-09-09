@@ -1,23 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RetroHero from '../../components/RetroHero';
 import RetroProjectsGrid from '../../components/RetroProjectsGrid';
 import BootIntro from '../../components/BootIntro';
 import CRTOverlay from '../../components/CRTOverlay';
 import DesktopOS from '../../components/DesktopOS';
+import GamesHub from '../games/GamesHub';
+import GameDetail from '../games/GameDetail';
+import NurtureNest from '../projects/NurtureNest';
+import MissionControl from '../projects/MissionControl';
+import TECDemoEngineering from '../projects/TECDemoEngineering';
 
 const RetroHome = () => {
   const [currentView, setCurrentView] = useState('hero');
+  const [selectedGame, setSelectedGame] = useState(null);
   const [bootComplete, setBootComplete] = useState(false);
+  const [showNavButtons, setShowNavButtons] = useState(true);
 
   const handleBootComplete = () => {
     setBootComplete(true);
   };
 
+  // Handle scroll detection for navigation buttons
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide buttons when in detail views and scrolled down
+      if (currentView === 'gameDetail' || currentView === 'nurtureNest' || currentView === 'missionControl' || currentView === 'tecDemoEngineering') {
+        setShowNavButtons(window.scrollY < 100);
+      } else {
+        setShowNavButtons(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentView]);
+
+  // Reset button visibility when view changes
+  useEffect(() => {
+    if (currentView !== 'gameDetail' && currentView !== 'nurtureNest' && currentView !== 'missionControl' && currentView !== 'tecDemoEngineering') {
+      setShowNavButtons(true);
+    }
+  }, [currentView]);
+
   const views = {
     hero: <RetroHero onNavigate={setCurrentView} />,
     desktop: <DesktopOS onNavigate={setCurrentView} />,
-    projects: <RetroProjectsGrid onBack={() => setCurrentView('hero')} />
+    projects: <RetroProjectsGrid onBack={() => setCurrentView('hero')} onNavigate={setCurrentView} />,
+    games: <GamesHub onBack={() => setCurrentView('projects')} onGameSelect={(gameSlug) => {
+      setSelectedGame(gameSlug);
+      setCurrentView('gameDetail');
+    }} />,
+    gameDetail: selectedGame && <GameDetail 
+      gameSlug={selectedGame} 
+      onBack={() => setCurrentView('games')} 
+      onBackToProjects={() => setCurrentView('projects')}
+    />,
+    nurtureNest: <NurtureNest onBack={() => setCurrentView('projects')} />,
+    missionControl: <MissionControl onBack={() => setCurrentView('projects')} />,
+    tecDemoEngineering: <TECDemoEngineering onBack={() => setCurrentView('projects')} />
   };
 
   return (
@@ -62,8 +103,16 @@ const RetroHome = () => {
       </AnimatePresence>
 
       {/* Navigation Overlay */}
-      {bootComplete && currentView !== 'desktop' && (
-        <div className="fixed top-4 right-4 z-50">
+      {bootComplete && currentView !== 'desktop' && showNavButtons && (
+        <motion.div 
+          className="fixed top-4 right-4 z-50"
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ 
+            opacity: showNavButtons ? 1 : 0,
+            y: showNavButtons ? 0 : -20
+          }}
+          transition={{ duration: 0.3 }}
+        >
           <div className="flex gap-2">
             <motion.button
               className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
@@ -90,7 +139,7 @@ const RetroHome = () => {
               DESKTOP.exe
             </motion.button>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Retro System Info - only show when not on desktop */}

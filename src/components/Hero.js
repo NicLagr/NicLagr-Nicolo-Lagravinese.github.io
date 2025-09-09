@@ -2,8 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Centerpiece from './Centerpiece';
 import ProjectsWindow from './ProjectsWindow';
+import GlitchText from './GlitchText';
 
 const Hero = () => {
+  // Words that represent your multidisciplinary skills
+  const glitchWords = [
+    'design',         // UX/UI Design (Figma, prototyping, human-centered)
+    'engineer',       // Full-stack development (React, Node.js, TypeScript)
+    'deploy',         // DevOps & Infrastructure (K8s, Docker, Helm, Argo CD)
+    'integrate',      // Hardware/IoT (MQTT, OPC-UA, Node-RED, Cognex)
+    'optimize',       // Data Engineering & Performance (Redshift, SQL, analytics)
+    'innovate'        // Game Development & Creative Problem Solving
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,11 +60,13 @@ const Hero = () => {
           className="heading-1 mb-6 max-w-4xl mx-auto"
           variants={itemVariants}
         >
-          Building reliable,{' '}
-          <span className="text-gradient-vaporwave">
-            human-centered systems
-          </span>
-          {' '}for web, cloud, and hardware
+          I{' '}
+          <GlitchText 
+            words={glitchWords}
+            glitchDuration={3500}
+            transitionDuration={500}
+          />
+          {' '}— bridging hardware, software, and human experience
         </motion.h1>
 
         {/* Subheadline */}

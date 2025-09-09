@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWinXPCursor } from './WinXPCursor';
+import GlitchText from './GlitchText';
+import LoadingGlitch from './LoadingGlitch';
 
 const RetroHero = ({ onNavigate }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [glitchText, setGlitchText] = useState('NICOLÒ LAGRAVINESE');
   const [isGlitching, setIsGlitching] = useState(false);
   const [steamGames, setSteamGames] = useState('???');
+  const [isSteamLoading, setIsSteamLoading] = useState(true);
   const { showLoading, hideLoading } = useWinXPCursor();
+
+  // Words that represent your multidisciplinary skills
+  const disciplineWords = [
+    'design',         // UX/UI Design (Figma, prototyping, human-centered)
+    'engineer',       // Full-stack development (React, Node.js, TypeScript)
+    'deploy',         // DevOps & Infrastructure (K8s, Docker, Helm, Argo CD)
+    'integrate',      // Hardware/IoT (MQTT, OPC-UA, Node-RED, Cognex)
+    'optimize',       // Data Engineering & Performance (Redshift, SQL, analytics)
+    'innovate'        // Game Development & Creative Problem Solving
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -73,6 +86,7 @@ const RetroHero = ({ onNavigate }) => {
               const gameCount = parseInt(match[1]);
               console.log('🎯 Found game count:', gameCount);
               setSteamGames(gameCount.toString());
+              setIsSteamLoading(false);
               return;
             }
           }
@@ -98,16 +112,19 @@ const RetroHero = ({ onNavigate }) => {
             const gameCount = parseInt(gameCountMatch[1]);
             console.log('🎯 Found game count on games page:', gameCount);
             setSteamGames(gameCount.toString());
+            setIsSteamLoading(false);
             return;
           }
         }
         
         console.log('⚠️ All methods failed, using fallback');
         setSteamGames('100+');
+        setIsSteamLoading(false);
         
       } catch (error) {
         console.error('💥 Steam API error:', error);
         setSteamGames('100+');
+        setIsSteamLoading(false);
       }
     };
 
@@ -242,14 +259,21 @@ const RetroHero = ({ onNavigate }) => {
           {glitchText}
         </motion.h1>
 
-        {/* Subtitle with Typewriter Effect */}
+        {/* Subtitle with Glitch Animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
           className="text-xl md:text-2xl text-vw-cyan mb-8 font-mono"
         >
-          <TypewriterText text="Building the future, one line of code at a time..." />
+          I{' '}
+          <GlitchText 
+            words={disciplineWords}
+            glitchDuration={3500}
+            transitionDuration={500}
+            className="text-vw-pink font-bold"
+          />
+          {' '}— bridging hardware, software, and human experience
         </motion.div>
 
         {/* Stats Display */}
@@ -260,13 +284,22 @@ const RetroHero = ({ onNavigate }) => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
         >
           {[
-            { label: 'Age', value: '20', color: 'text-vw-pink' },
-            { label: 'Steam Games Owned', value: steamGames, color: 'text-vw-cyan' },
-            { label: 'Late Night Commits', value: '∞', color: 'text-vw-purple' }
+            { label: 'Age', value: '20', color: 'text-vw-pink', isStatic: true },
+            { label: 'Steam Games Owned', value: steamGames, color: 'text-vw-cyan', isLoading: isSteamLoading },
+            { label: 'Late Night Commits', value: '∞', color: 'text-vw-purple', isStatic: true }
           ].map((stat, index) => (
             <div key={index} className="bg-black/50 backdrop-blur-sm border border-white/20 rounded-lg p-4">
               <div className={`text-3xl font-bold ${stat.color} font-mono`}>
-                {stat.value}
+                {stat.isLoading ? (
+                  <LoadingGlitch 
+                    isLoading={stat.isLoading}
+                    loadedValue={stat.value}
+                    className={stat.color}
+                    placeholder="???"
+                  />
+                ) : (
+                  stat.value
+                )}
               </div>
               <div className="text-white/80 text-sm">{stat.label}</div>
             </div>

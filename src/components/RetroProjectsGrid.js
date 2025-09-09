@@ -14,7 +14,7 @@ import globeIcon from '../assets/xp-icons/globe.png';
 import toolsIcon from '../assets/xp-icons/tools.png';
 import briefcaseIcon from '../assets/xp-icons/briefcase.png';
 
-const RetroProjectsGrid = ({ onBack }) => {
+const RetroProjectsGrid = ({ onBack, onNavigate }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('all');
 
@@ -26,9 +26,9 @@ const RetroProjectsGrid = ({ onBack }) => {
       icon: controlPanelIcon,
       year: '2025',
       company: 'Tulip Interfaces',
-      tech: ['React SPA', 'Node.js/Express', 'Redshift', 'Kubernetes', 'Helm', 'Argo CD'],
+      tech: ['React', 'Node.js', 'Express', 'AWS Redshift', 'Kubernetes', 'Helm', 'Argo CD', 'Docker'],
       description: 'Production monitoring platform with 3D-style visualization and analytics. Deployed to Garden 11 via Helm/Argo CD with GitHub Actions to AWS ECR; Vault secrets + TLS (cert-manager). Dashboards for WAU, editor minutes, event activity, and machine engagement.',
-      status: 'ACTIVE',
+      status: 'ARCHIVED',
       image: '/api/placeholder/400/300',
       color: 'from-vw-pink to-vw-purple'
     },
@@ -39,9 +39,9 @@ const RetroProjectsGrid = ({ onBack }) => {
       icon: factoryIcon,
       year: '2025',
       company: 'Tulip Interfaces',
-      tech: ['Hardware', 'Node-RED', 'MQTT', 'OPC-UA', 'Cognex'],
+      tech: ['Industrial IoT', 'Node-RED', 'MQTT', 'OPC-UA', 'Cognex Vision', 'LandingAI'],
       description: 'Built live demos: conveyors, pick-to-lights, Andon lights, Cognex vision systems. Integrated industrial hardware via Node-RED and Tulip connectors; trained LandingAI models for OCR/defect detection. Developed reusable KPI widgets and demo UX components with docs.',
-      status: 'ACTIVE',
+      status: 'ARCHIVED',
       image: '/api/placeholder/400/300',
       color: 'from-vw-cyan to-vw-pink'
     },
@@ -52,7 +52,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       icon: diamondIcon,
       year: '2025',
       company: 'Independent Project',
-      tech: ['React', 'Node.js/Express', 'SQL', 'REST APIs'],
+      tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'REST APIs', 'SMS/Email APIs'],
       description: 'CRM with repair workflow tracking, automated SMS/email notifications, QR/barcode receipts. Modular service design with clean UI for store operators.',
       status: 'ACTIVE',
       image: '/api/placeholder/400/300',
@@ -65,10 +65,10 @@ const RetroProjectsGrid = ({ onBack }) => {
       icon: hospitalIcon,
       year: '2025',
       company: 'Social Impact Project',
-      tech: ['Figma', 'Frontend', 'Health UX'],
+      tech: ['React', 'Figma', 'UX Design', 'Healthcare', 'Accessibility'],
       description: 'Maternal health app with UX and frontend for health information and monitoring. Focused on accessibility for communities in Ghana.',
       status: 'DEV',
-      image: '/api/placeholder/400/300',
+      image: '/projects/nurture-nest/hero.jpg',
       color: 'from-vw-pink to-vw-cyan'
     },
     {
@@ -78,10 +78,10 @@ const RetroProjectsGrid = ({ onBack }) => {
       icon: gamepadIcon,
       year: '2024',
       company: 'Personal Projects',
-      tech: ['Unity 3D', 'Java', 'C#'],
+      tech: ['Unity 3D', 'C#', 'Java', 'Game Design', 'Algorithm Recreation'],
       description: 'Multiple game projects including "Whispers of the Abyss" (dungeon-horror), "Hellfire at High Noon" (FPS), and Java recreations of NYT Spelling Bee and Red7.',
       status: 'LIVE',
-      image: '/api/placeholder/400/300',
+      image: '/games/wota/hero.png',
       color: 'from-vw-cyan to-vw-purple'
     },
     {
@@ -91,7 +91,7 @@ const RetroProjectsGrid = ({ onBack }) => {
       icon: floppyIcon,
       year: '2025',
       company: 'Personal Projects',
-      tech: ['React', 'Tailwind CSS', 'Framer Motion', '98.css', 'Steam API'],
+      tech: ['React', 'Tailwind CSS', 'Framer Motion', '98.css', 'Steam API', 'Retro UI'],
       description: 'Interactive retro portfolio with Windows 98 desktop OS interface, live Steam integration, CRT effects, and vaporwave aesthetics. Features boot sequence, draggable windows, and terminal-style navigation.',
       status: 'LIVE',
       image: '/api/placeholder/400/300',
@@ -201,28 +201,31 @@ const RetroProjectsGrid = ({ onBack }) => {
             >
               {/* Project Header */}
               <div className={`bg-gradient-to-r ${project.color} p-4 text-center relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
                 <div className="relative z-10">
                   <div className="mb-2 flex justify-center">
                     <img src={project.icon} alt={project.title} className="w-12 h-12" />
                   </div>
-                  <div className="font-bold text-white">{project.title}</div>
-                  <div className="text-sm opacity-90">{project.year}</div>
+                  <div className="font-bold text-white text-shadow-sm">{project.title}</div>
+                  <div className="text-sm text-white font-medium">{project.year}</div>
+                  {project.company && (
+                    <div className="text-xs text-white/90 font-medium mt-1">{project.company}</div>
+                  )}
                 </div>
                 
                 {/* Halftone Pattern Overlay */}
                 <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[length:8px_8px]"></div>
               </div>
 
-              {/* Project Body */}
-              <div className="p-4">
-                <div className={`inline-block px-2 py-1 rounded text-xs font-mono mb-3 ${getStatusColor(project.status)}`}>
-                  {project.status}
-                </div>
-                
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+                {/* Project Body */}
+                <div className="p-4 bg-gray-900/80 backdrop-blur-sm">
+                  <div className={`inline-block px-2 py-1 rounded text-xs font-mono mb-3 ${getStatusColor(project.status)}`}>
+                    {project.status}
+                  </div>
+                  
+                  <p className="text-gray-50 text-sm mb-4 leading-relaxed font-medium">
+                    {project.description}
+                  </p>
                 
                 <div className="flex flex-wrap gap-1 mb-4">
                   {project.tech.map((tech, index) => (
@@ -235,7 +238,7 @@ const RetroProjectsGrid = ({ onBack }) => {
                   ))}
                 </div>
 
-                <div className="flex justify-between items-center text-xs text-gray-500 font-mono">
+                <div className="flex justify-between items-center text-xs text-gray-300 font-mono">
                   <span>CLICK TO EXPAND</span>
                   <span>SIZE: {Math.floor(Math.random() * 999)}KB</span>
                 </div>
@@ -292,19 +295,19 @@ const RetroProjectsGrid = ({ onBack }) => {
                         
                         <div>
                           <span className="text-vw-cyan">YEAR:</span> 
-                          <span className="ml-2">{selectedProject.year}</span>
+                          <span className="ml-2 text-black">{selectedProject.year}</span>
                         </div>
                         
                         {selectedProject.company && (
                           <div>
                             <span className="text-vw-cyan">COMPANY:</span> 
-                            <span className="ml-2">{selectedProject.company}</span>
+                            <span className="ml-2 text-black">{selectedProject.company}</span>
                           </div>
                         )}
                         
                         <div>
                           <span className="text-vw-cyan">CATEGORY:</span> 
-                          <span className="ml-2 uppercase">{selectedProject.category}</span>
+                          <span className="ml-2 uppercase text-black">{selectedProject.category}</span>
                         </div>
                         
                         <div>
@@ -324,26 +327,58 @@ const RetroProjectsGrid = ({ onBack }) => {
 
                       <div className="mt-6">
                         <h4 className="text-vw-pink font-bold mb-2">DESCRIPTION</h4>
-                        <p className="text-gray-300 leading-relaxed">
+                        <p className="text-black leading-relaxed">
                           {selectedProject.description}
                         </p>
                       </div>
 
-                      <div className="mt-6 flex gap-3">
+                      <div className="mt-6 flex gap-3 relative">
                         <motion.button
-                          className="px-4 py-2 bg-vw-pink text-white font-bold rounded hover:bg-vw-pink/80 transition-colors"
+                          className="px-4 py-2 bg-vw-pink text-white font-bold rounded hover:bg-vw-pink/80 transition-colors relative"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
+                          onClick={() => {
+                            if (selectedProject.id === 1 && onNavigate) {
+                              // Mission Control 3.0 - navigate to mission control view
+                              onNavigate('missionControl');
+                              setSelectedProject(null);
+                            } else if (selectedProject.id === 2 && onNavigate) {
+                              // TEC Demo Engineering - navigate to TEC demo engineering view
+                              onNavigate('tecDemoEngineering');
+                              setSelectedProject(null);
+                            } else if (selectedProject.id === 5 && onNavigate) {
+                              // Game Development Portfolio - navigate to games view
+                              onNavigate('games');
+                              setSelectedProject(null);
+                            } else if (selectedProject.id === 4 && onNavigate) {
+                              // Nurture Nest - navigate to nurture nest view
+                              onNavigate('nurtureNest');
+                              setSelectedProject(null);
+                            } else {
+                              // Other projects - placeholder for now
+                              console.log('View Live clicked for:', selectedProject.title);
+                            }
+                          }}
                         >
                           VIEW LIVE
                         </motion.button>
-                        <motion.button
-                          className="px-4 py-2 border-2 border-vw-cyan text-vw-cyan font-bold rounded hover:bg-vw-cyan hover:text-black transition-colors"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                        
+                          {/* Animated Pointer Arrow */}
+                          <motion.div
+                            className="absolute -left-4 text-vw-cyan text-xl pointer-events-none"
+                            style={{ top: 'calc(50% - 20px)' }}
+                          animate={{
+                            x: [0, -8, 0],
+                            opacity: [0.6, 1, 0.6]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
                         >
-                          SOURCE CODE
-                        </motion.button>
+                          ➤
+                        </motion.div>
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "98.css";
-@import "./vendor/aesthetic.css";
 @import "./vaporwave.css";
 @tailwind base;
 @tailwind components;
@@ -383,6 +382,21 @@ body::after {
 /* Better center the close button X symbol */
 .title-bar-controls button[aria-label="Close"] {
   background-position: center center !important;
+}
+
+/* Glitch text animation */
+.glitch-text {
+  position: relative;
+  animation: glitch-skew 0.5s ease-in-out;
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(2deg); }
+  40% { transform: skew(-1deg); }
+  60% { transform: skew(1deg); }
+  80% { transform: skew(-0.5deg); }
+  100% { transform: skew(0deg); }
 }
 
 /* Print styles */
