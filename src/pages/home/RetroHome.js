@@ -10,6 +10,7 @@ import GameDetail from '../games/GameDetail';
 import NurtureNest from '../projects/NurtureNest';
 import MissionControl from '../projects/MissionControl';
 import TECDemoEngineering from '../projects/TECDemoEngineering';
+import PortfolioWebpage from '../projects/PortfolioWebpage';
 
 const RetroHome = () => {
   const [currentView, setCurrentView] = useState('hero');
@@ -25,7 +26,7 @@ const RetroHome = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Hide buttons when in detail views and scrolled down
-      if (currentView === 'gameDetail' || currentView === 'nurtureNest' || currentView === 'missionControl' || currentView === 'tecDemoEngineering') {
+      if (currentView === 'gameDetail' || currentView === 'nurtureNest' || currentView === 'missionControl' || currentView === 'tecDemoEngineering' || currentView === 'portfolioWebpage') {
         setShowNavButtons(window.scrollY < 100);
       } else {
         setShowNavButtons(true);
@@ -38,7 +39,7 @@ const RetroHome = () => {
 
   // Reset button visibility when view changes
   useEffect(() => {
-    if (currentView !== 'gameDetail' && currentView !== 'nurtureNest' && currentView !== 'missionControl' && currentView !== 'tecDemoEngineering') {
+    if (currentView !== 'gameDetail' && currentView !== 'nurtureNest' && currentView !== 'missionControl' && currentView !== 'tecDemoEngineering' && currentView !== 'portfolioWebpage') {
       setShowNavButtons(true);
     }
   }, [currentView]);
@@ -58,7 +59,8 @@ const RetroHome = () => {
     />,
     nurtureNest: <NurtureNest onBack={() => setCurrentView('projects')} />,
     missionControl: <MissionControl onBack={() => setCurrentView('projects')} />,
-    tecDemoEngineering: <TECDemoEngineering onBack={() => setCurrentView('projects')} />
+    tecDemoEngineering: <TECDemoEngineering onBack={() => setCurrentView('projects')} />,
+    portfolioWebpage: <PortfolioWebpage onBack={() => setCurrentView('projects')} />
   };
 
   return (

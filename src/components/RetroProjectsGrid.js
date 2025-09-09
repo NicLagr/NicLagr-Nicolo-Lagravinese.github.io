@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RetroWindow from './RetroWindow';
+import Win98ErrorDialog from './Win98ErrorDialog';
 
 // Import XP icons
 import controlPanelIcon from '../assets/xp-icons/control-panel.png';
@@ -17,6 +18,7 @@ import briefcaseIcon from '../assets/xp-icons/briefcase.png';
 const RetroProjectsGrid = ({ onBack, onNavigate }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('all');
+  const [showErrorDialog, setShowErrorDialog] = useState(false);
 
   const projects = [
     {
@@ -354,6 +356,13 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
                               // Nurture Nest - navigate to nurture nest view
                               onNavigate('nurtureNest');
                               setSelectedProject(null);
+                            } else if (selectedProject.id === 6 && onNavigate) {
+                              // Portfolio Webpage - navigate to portfolio webpage view
+                              onNavigate('portfolioWebpage');
+                              setSelectedProject(null);
+                            } else if (selectedProject.id === 3) {
+                              // Jewelry Management Platform - show error dialog
+                              setShowErrorDialog(true);
                             } else {
                               // Other projects - placeholder for now
                               console.log('View Live clicked for:', selectedProject.title);
@@ -388,6 +397,15 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Win98 Error Dialog */}
+      <Win98ErrorDialog
+        isOpen={showErrorDialog}
+        onClose={() => setShowErrorDialog(false)}
+        title="Jewelry Management Platform"
+        message="This project is currently in production and will be available for showcase soon. Please check back later for the live demo."
+        icon="construction"
+      />
     </div>
   );
 };

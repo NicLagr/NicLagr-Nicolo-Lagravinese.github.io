@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Win98ErrorDialog from './Win98ErrorDialog';
 
 const ProjectCard = ({ project, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showErrorDialog, setShowErrorDialog] = useState(false);
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -29,24 +27,6 @@ const ProjectCard = ({ project, index }) => {
         ease: "easeOut"
       }
     }
-  };
-
-  const handleProjectClick = (e) => {
-    console.log('Project clicked:', project.title);
-    console.log('Includes jewelry?', project.title.toLowerCase().includes('jewelry'));
-    
-    // Check if this is the jewelry platform project
-    if (project.title.toLowerCase().includes('jewelry')) {
-      console.log('Preventing default and showing dialog');
-      e.preventDefault();
-      console.log('Setting showErrorDialog to true');
-      setShowErrorDialog(true);
-      console.log('showErrorDialog state should now be true');
-      return false;
-    }
-    // For other projects, let the default link behavior happen
-    console.log('Allowing default behavior');
-    return true;
   };
 
   return (
@@ -142,52 +122,16 @@ const ProjectCard = ({ project, index }) => {
             </motion.button>
           )}
           
-          {project.title.toLowerCase().includes('jewelry') ? (
-            <motion.button
-              onClick={handleProjectClick}
-              className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible bg-transparent border-none cursor-pointer"
-              whileHover={{ scale: 1.05, x: 5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {project.ctaLabel} →
-            </motion.button>
-          ) : (
-            <motion.a
-              href={project.link}
-              onClick={handleProjectClick}
-              className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible"
-              whileHover={{ scale: 1.05, x: 5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {project.ctaLabel} →
-            </motion.a>
-          )}
+          <motion.a
+            href={project.link}
+            className="text-sm font-medium text-accent-primary hover:text-accent-secondary transition-colors duration-300 focus-visible"
+            whileHover={{ scale: 1.05, x: 5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {project.ctaLabel} →
+          </motion.a>
         </div>
       </div>
-
-      {/* Test button for jewelry project */}
-      {project.title.toLowerCase().includes('jewelry') && (
-        <button 
-          onClick={() => {
-            console.log('Test button clicked - setting dialog to true');
-            setShowErrorDialog(true);
-          }}
-          style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 999, background: 'red', color: 'white', padding: '5px' }}
-        >
-          TEST DIALOG
-        </button>
-      )}
-
-      {/* Windows 98 Error Dialog */}
-      <Win98ErrorDialog
-        isOpen={showErrorDialog}
-        onClose={() => {
-          console.log('Closing dialog');
-          setShowErrorDialog(false);
-        }}
-        title="Project Status"
-        message="The Jewelry/Retail Management Platform is currently in production and will be available for showcase soon. Please check back later for live demo access."
-      />
     </motion.div>
   );
 };

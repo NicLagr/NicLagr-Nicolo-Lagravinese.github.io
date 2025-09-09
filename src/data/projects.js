@@ -33,7 +33,7 @@ export const projects = [
       "CRM with repair workflow tracking, automated SMS/email notifications, QR/barcode receipts.",
       "Modular service design with clean UI for store operators."
     ],
-    ctaLabel: "View Live",
+    ctaLabel: "View details",
     link: "#",
     gradient: "from-vaporwave-purple to-vaporwave-teal"
   },
