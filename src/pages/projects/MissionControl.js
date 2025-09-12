@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RetroWindow from '../../components/RetroWindow';
 import MediaGallery from '../../components/MediaGallery';
+import { getImagePath } from '../../utils/imagePath';
 
 const MissionControl = ({ onBack }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -102,11 +103,11 @@ const MissionControl = ({ onBack }) => {
     ],
 
       media: {
-        demo: "/projects/mission-control/demo-video.mp4",
+        demo: getImagePath('/projects/mission-control/demo-video.mp4'),
         designs: [
-          "/projects/mission-control/design-1.png",
-          "/projects/mission-control/design-2.png", 
-          "/projects/mission-control/design-3.png"
+          getImagePath('/projects/mission-control/design-1.png'),
+          getImagePath('/projects/mission-control/design-2.png'), 
+          getImagePath('/projects/mission-control/design-3.png')
         ]
       }
   };
@@ -406,7 +407,7 @@ const MissionControl = ({ onBack }) => {
                           <video 
                             className="w-full h-full object-cover" 
                             controls
-                            poster="/projects/mission-control/design-1.png"
+                            poster={getImagePath('/projects/mission-control/design-1.png')}
                           >
                             <source src={project.media.demo} type="video/mp4" />
                             <div className="flex items-center justify-center h-full">

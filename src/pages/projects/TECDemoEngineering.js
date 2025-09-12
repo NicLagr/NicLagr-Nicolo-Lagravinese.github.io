@@ -45,31 +45,31 @@ const TECDemoEngineering = ({ onBack }) => {
         title: "Automate 2025 Demo Benches",
         description: "Aided team in building comprehensive hardware wall with 15+ industrial devices, trained and integrated AI vision detection system, plus helped assemble mini cHMI demo bench with Ignition SCADA and UNS integration",
         tech: ["Mitsubishi PLC", "Cognex Vision", "LandingAI", "Ignition SCADA", "Unified Namespace", "HiveMQ", "Arduino Integration", "OPC-UA", "MQTT"],
-        media: "/projects/tec-demos/automate-demo.jpg"
+        media: getImagePath('/projects/tec-demos/automate-demo.jpg')
       },
       {
         title: "World Economic Forum cHMI Wall & Andon Assembly",
         description: "Aided team in building composable HMI wall for World Economic Forum at Tulip HQ, plus developed Andon assembly pop-up factory for executive demonstrations",
         tech: ["Composable HMI", "Multi-Screen Integration", "Andon Systems", "Executive Demos"],
-        media: "/projects/tec-demos/hardware-wall.png"
+        media: getImagePath('/projects/tec-demos/hardware-wall.png')
       },
       {
         title: "TEC Clock Assembly Pop-up Factory",
         description: "Constructed interactive clock assembly demonstration with complete software and hardware integration using Node-RED, Andon lights, pick-to-lights, RFID readers, and assembly workflows",
         tech: ["Node-RED", "Andon Lights", "Pick-to-Light", "RFID Reader", "Assembly Workflows", "Hardware Integration", "Software Setup"],
-        media: "/projects/tec-demos/tec-clock-assembly.jpg"
+        media: getImagePath('/projects/tec-demos/tec-clock-assembly.jpg')
       },
       {
         title: "Discrete Manufacturing Demo Kit",
         description: "Portable demo kit for discrete manufacturing showcasing assembly workflows, quality tracking, and operator guidance systems with yellow bin organization",
         tech: ["Portable Hardware", "Assembly Tracking", "Quality Gates", "Operator Guidance", "Modular Design"],
-        media: "/projects/tec-demos/discrete-demo-kit.jpg"
+        media: getImagePath('/projects/tec-demos/discrete-demo-kit.jpg')
       },
       {
         title: "Pharma Travel Demo Kits",
         description: "Portable life sciences demo kits featuring Wave Bioreactor simulation and Lab Companion for major pharma tradeshows",
         tech: ["Portable Hardware", "Wave Bioreactor", "Lab Companion", "Modular Design"],
-        media: "/projects/tec-demos/pharma-kit.png"
+        media: getImagePath('/projects/tec-demos/pharma-kit.png')
       },
       {
         title: "Coffee Brewlip Learning Project",

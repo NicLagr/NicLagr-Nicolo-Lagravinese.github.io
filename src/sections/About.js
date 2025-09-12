@@ -1,4 +1,5 @@
 import React from 'react';
+import { getImagePath } from '../utils/imagePath';
 import { motion } from 'framer-motion';
 import { skills, aboutText, availabilityText } from '../data/skills';
 
@@ -123,7 +124,7 @@ const About = () => {
               whileTap={{ scale: 0.95 }}
             >
               <a
-                href="/NICOLO_LAGRAVINESE_Resume.pdf"
+                href={getImagePath('/NICOLO_LAGRAVINESE_Resume.pdf')}
                 download
                 className="btn-primary inline-flex items-center space-x-2"
               >

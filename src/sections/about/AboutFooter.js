@@ -1,4 +1,5 @@
 import React from 'react';
+import { getImagePath } from '../../utils/imagePath';
 import { motion } from 'framer-motion';
 
 const AboutFooter = () => {
@@ -80,7 +81,7 @@ const AboutFooter = () => {
           </a>
 
           <a
-            href="/Resume_Fall_2025.pdf"
+            href={getImagePath('/Resume_Fall_2025.pdf')}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 px-4 py-2 bg-gray-800/50 backdrop-blur-sm border border-pink-400/30 rounded-lg hover:border-pink-400/60 hover:bg-pink-400/10 transition-all duration-300"

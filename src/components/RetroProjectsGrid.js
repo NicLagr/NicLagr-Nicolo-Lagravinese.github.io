@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RetroWindow from './RetroWindow';
 import Win98ErrorDialog from './Win98ErrorDialog';
+import { getImagePath } from '../utils/imagePath';
 
 // Import XP icons
 import controlPanelIcon from '../assets/xp-icons/control-panel.png';
@@ -83,7 +84,7 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
       tech: ['Unity 3D', 'C#', 'Java', 'Game Design', 'Algorithm Recreation'],
       description: 'Multiple game projects including "Whispers of the Abyss" (dungeon-horror), "Hellfire at High Noon" (FPS), and Java recreations of NYT Spelling Bee and Red7.',
       status: 'LIVE',
-      image: '/games/wota/hero.png',
+      image: getImagePath('/games/wota/hero.png'),
       color: 'from-vw-cyan to-vw-purple'
     },
     {

@@ -1,4 +1,6 @@
 // data/games.js
+import { getImagePath } from '../utils/imagePath';
+
 export const games = [
   {
     slug: 'wota',
@@ -42,14 +44,14 @@ export const games = [
       repo: 'https://github.com/NicLagr/CS_3540_Final/commits/main/'
     },
     media: {
-      hero: '/games/wota/hero.png',
+      hero: getImagePath('/games/wota/hero.png'),
       gallery: [
-        '/games/wota/screen-1.png',
-        '/games/wota/screen-2.png',
-        '/games/wota/screen-3.png',
-        '/games/wota/screen-4.png',
-        '/games/wota/concept-1.png',
-        '/games/wota/concept-2.png'
+        getImagePath('/games/wota/screen-1.png'),
+        getImagePath('/games/wota/screen-2.png'),
+        getImagePath('/games/wota/screen-3.png'),
+        getImagePath('/games/wota/screen-4.png'),
+        getImagePath('/games/wota/concept-1.png'),
+        getImagePath('/games/wota/concept-2.png')
       ]
     }
   },
@@ -95,12 +97,12 @@ export const games = [
       repo: 'https://github.com/NicLagr/FPS-Game'
     },
     media: {
-      hero: '/games/hellfire/hero.png',
+      hero: getImagePath('/games/hellfire/hero.png'),
       gallery: [
-        '/games/hellfire/screen-1.png',
-        '/games/hellfire/screen-2.png',
-        '/games/hellfire/screen-3.png',
-        '/games/hellfire/screen-4.png'
+        getImagePath('/games/hellfire/screen-1.png'),
+        getImagePath('/games/hellfire/screen-2.png'),
+        getImagePath('/games/hellfire/screen-3.png'),
+        getImagePath('/games/hellfire/screen-4.png')
       ]
     }
   },
@@ -144,10 +146,10 @@ export const games = [
       play: 'https://play.unity.com/en/games/2cad469f-9ea1-4d20-9618-7161845eb935/rolling-siege'
     },
     media: {
-      hero: '/games/rolling-siege/hero.png',
+      hero: getImagePath('/games/rolling-siege/hero.png'),
       gallery: [
-        '/games/rolling-siege/screen-1.png',
-        '/games/rolling-siege/screen-2.png'
+        getImagePath('/games/rolling-siege/screen-1.png'),
+        getImagePath('/games/rolling-siege/screen-2.png')
       ]
     }
   }
