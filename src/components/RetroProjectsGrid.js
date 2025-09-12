@@ -129,11 +129,11 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
   return (
     <div className="min-h-screen bg-black text-white p-6">
       {/* Header */}
-      <div className="mb-8 pt-4 md:pt-0">
-        <div className="flex items-center gap-4 mb-4 pr-16 md:pr-0">
+      <div className="mb-8 pt-8 md:pt-0">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4 pr-20 md:pr-0">
           {onBack && (
             <motion.button
-              className="px-4 py-2 bg-gray-800 border border-gray-600 text-vw-cyan font-mono text-sm hover:bg-gray-700 transition-colors"
+              className="px-4 py-2 bg-gray-800 border border-gray-600 text-vw-cyan font-mono text-sm hover:bg-gray-700 transition-colors self-start"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onBack}
@@ -142,11 +142,12 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
             </motion.button>
           )}
           <motion.h1 
-            className="text-2xl md:text-4xl font-bold font-mono aberration"
+            className="text-xl md:text-4xl font-bold font-mono aberration break-words"
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
           >
-            PROJECT_ARCHIVE.EXE
+            <span className="md:hidden">PROJECTS</span>
+            <span className="hidden md:inline">PROJECT_ARCHIVE.EXE</span>
           </motion.h1>
         </div>
         
