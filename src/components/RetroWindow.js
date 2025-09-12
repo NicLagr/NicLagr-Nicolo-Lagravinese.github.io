@@ -40,7 +40,7 @@ export default function RetroWindow({
         <div className="title-bar-controls flex gap-1 pointer-events-auto">
           <motion.button 
             aria-label="Minimize"
-            className="w-4 h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200 cursor-pointer"
+            className="w-6 h-6 md:w-4 md:h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={(e) => {
@@ -51,7 +51,7 @@ export default function RetroWindow({
           </motion.button>
           <motion.button 
             aria-label="Maximize"
-            className="w-4 h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200 cursor-pointer"
+            className="w-6 h-6 md:w-4 md:h-4 bg-gray-300 border border-gray-600 text-xs flex items-center justify-center hover:bg-gray-200 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={(e) => {
@@ -62,7 +62,7 @@ export default function RetroWindow({
           </motion.button>
           <motion.button 
             aria-label="Close"
-            className="w-4 h-4 bg-red-500 border border-red-700 text-white text-xs flex items-center justify-center hover:bg-red-400 cursor-pointer"
+            className="w-8 h-8 md:w-4 md:h-4 bg-red-500 border border-red-700 text-white text-xs flex items-center justify-center hover:bg-red-400 cursor-pointer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={(e) => {
@@ -70,6 +70,7 @@ export default function RetroWindow({
               onClose && onClose();
             }}
           >
+            <span className="md:hidden text-white font-bold">✕</span>
           </motion.button>
         </div>
       </div>

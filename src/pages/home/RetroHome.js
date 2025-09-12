@@ -12,6 +12,7 @@ import MissionControl from '../projects/MissionControl';
 import TECDemoEngineering from '../projects/TECDemoEngineering';
 import PortfolioWebpage from '../projects/PortfolioWebpage';
 import AboutPage from '../about/AboutPage';
+import MobileNavMenu from '../../components/MobileNavMenu';
 
 const RetroHome = () => {
   const [currentView, setCurrentView] = useState('hero');
@@ -106,10 +107,10 @@ const RetroHome = () => {
         )}
       </AnimatePresence>
 
-      {/* Navigation Overlay */}
+      {/* Desktop Navigation - hidden on mobile */}
       {bootComplete && currentView !== 'desktop' && showNavButtons && (
         <motion.div 
-          className="fixed top-4 right-4 z-50"
+          className="fixed top-4 left-4 z-50 hidden md:block"
           initial={{ opacity: 1, y: 0 }}
           animate={{ 
             opacity: showNavButtons ? 1 : 0,
@@ -117,9 +118,9 @@ const RetroHome = () => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="flex flex-col md:flex-row gap-3 md:gap-2">
+          <div className="flex gap-2">
             <motion.button
-              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
+              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('hero')}
@@ -127,7 +128,7 @@ const RetroHome = () => {
               HOME.exe
             </motion.button>
             <motion.button
-              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
+              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('about')}
@@ -135,7 +136,7 @@ const RetroHome = () => {
               ABOUT.exe
             </motion.button>
             <motion.button
-              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
+              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('projects')}
@@ -143,7 +144,7 @@ const RetroHome = () => {
               PROJECTS.exe
             </motion.button>
             <motion.button
-              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
+              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('desktop')}
@@ -153,6 +154,13 @@ const RetroHome = () => {
           </div>
         </motion.div>
       )}
+
+      {/* Mobile Hamburger Navigation */}
+      <MobileNavMenu 
+        currentView={currentView}
+        onNavigate={setCurrentView}
+        showNavButtons={bootComplete && showNavButtons && currentView !== 'desktop'}
+      />
 
       {/* Retro System Info - hidden on mobile to prevent overlap */}
       {bootComplete && currentView !== 'desktop' && (
