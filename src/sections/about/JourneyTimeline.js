@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { getImagePath } from '../../utils/imagePath';
 
 const JourneyTimeline = () => {
   const timelineRef = useRef(null);
@@ -43,7 +44,7 @@ const JourneyTimeline = () => {
       {/* Vaporwave city grid background */}
       <div className="absolute inset-0 opacity-15">
         <img 
-          src="/vapor/grid.png" 
+          src={getImagePath('/vapor/grid.png')} 
           alt="" 
           className="w-full h-full object-cover"
           style={{ 
@@ -68,7 +69,7 @@ const JourneyTimeline = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/car.png"
+          src={getImagePath('/vapor/car.png')}
           alt=""
           className="w-full h-full object-contain"
         />
@@ -79,7 +80,7 @@ const JourneyTimeline = () => {
         className="absolute top-1/4 left-16 w-20 h-20 opacity-20 float-slow"
         aria-hidden="true"
       >
-        <img src="/vapor/spheres.png" alt="" className="w-full h-full object-contain" />
+        <img src={getImagePath('/vapor/spheres.png')} alt="" className="w-full h-full object-contain" />
       </motion.div>
 
       {/* Classical vaporwave bust */}
@@ -88,7 +89,7 @@ const JourneyTimeline = () => {
         style={{ animationDelay: '4s' }}
         aria-hidden="true"
       >
-        <img src="/vapor/statue.png" alt="" className="w-full h-full object-contain" />
+        <img src={getImagePath('/vapor/statue.png')} alt="" className="w-full h-full object-contain" />
       </motion.div>
 
       {/* Wireframe bust silhouette */}

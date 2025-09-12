@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { getImagePath } from '../../utils/imagePath';
 
 const CloudApproach = () => {
   const sectionRef = useRef(null);
@@ -78,7 +79,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/bliss.jpg"
+          src={getImagePath('/vapor/bliss.jpg')}
           alt=""
           className="w-full h-full object-cover"
         />
@@ -192,7 +193,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/mountains.png"
+          src={getImagePath('/vapor/mountains.png')}
           alt=""
           className="w-full h-full object-cover object-bottom"
         />
@@ -206,7 +207,7 @@ const CloudApproach = () => {
       >
         <div className="relative w-full h-full">
           <img
-            src="/vapor/sun.png"
+            src={getImagePath('/vapor/sun.png')}
             alt=""
             className="w-full h-full object-contain glow-pulse"
           />
@@ -243,7 +244,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/column.png"
+          src={getImagePath('/vapor/column.png')}
           alt=""
           className="w-full h-full object-contain"
         />
@@ -259,7 +260,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/column.png"
+          src={getImagePath('/vapor/column.png')}
           alt=""
           className="w-full h-full object-contain scale-x-[-1]"
         />
@@ -318,7 +319,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/torus.png"
+          src={getImagePath('/vapor/torus.png')}
           alt=""
           className="w-full h-full object-contain opacity-60"
           style={{ filter: 'hue-rotate(180deg) brightness(1.2)' }}
@@ -391,7 +392,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/statue.png"
+          src={getImagePath('/vapor/statue.png')}
           alt=""
           className="w-full h-full object-contain"
           style={{ 
@@ -466,7 +467,7 @@ const CloudApproach = () => {
         aria-hidden="true"
       >
         <img
-          src="/vapor/statue.png"
+          src={getImagePath('/vapor/statue.png')}
           alt=""
           className="w-full h-full object-contain scale-x-[-1]"
           style={{ 
@@ -535,7 +536,7 @@ const CloudApproach = () => {
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-4 py-2 text-sm font-bold flex items-center justify-between">
             <div className="flex items-center gap-2">
               <img 
-                src="/assets/xp-icons/lightbulb.png" 
+                src={getImagePath('/assets/xp-icons/lightbulb.png')} 
                 alt="Approach"
                 className="w-4 h-4"
               />
@@ -552,7 +553,7 @@ const CloudApproach = () => {
               {/* Large icon */}
               <div className="flex-shrink-0">
                 <img 
-                  src="/assets/xp-icons/lightbulb.png" 
+                  src={getImagePath('/assets/xp-icons/lightbulb.png')} 
                   alt="Approach"
                   className="w-12 h-12"
                 />
@@ -607,7 +608,7 @@ const CloudApproach = () => {
             viewport={{ once: true }}
           >
             <img
-              src="/assets/vaporwave/dolphin.png"
+              src={getImagePath('/assets/vaporwave/dolphin.png')}
               alt=""
               className="w-full h-full object-contain"
             />

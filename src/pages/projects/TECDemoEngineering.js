@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import RetroWindow from '../../components/RetroWindow';
+import { getImagePath } from '../../utils/imagePath';
 
 const TECDemoEngineering = ({ onBack }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -289,7 +290,7 @@ const TECDemoEngineering = ({ onBack }) => {
                   <div className="bg-gray-900/50 backdrop-blur border border-vw-cyan/30 rounded-lg p-4">
                     <div className="w-full bg-gray-800 rounded mb-3 flex items-center justify-center overflow-hidden" style={{ minHeight: '160px', maxHeight: '200px' }}>
                       <img 
-                        src="/projects/tec-demos/pharma-kit.png" 
+                        src={getImagePath('/projects/tec-demos/pharma-kit.png')} 
                         alt="Pharma Travel Demo Kits"
                         className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                         style={{ maxHeight: '180px' }}
@@ -304,7 +305,7 @@ const TECDemoEngineering = ({ onBack }) => {
                   <div className="bg-gray-900/50 backdrop-blur border border-vw-cyan/30 rounded-lg p-4">
                     <div className="w-full bg-gray-800 rounded mb-3 flex items-center justify-center overflow-hidden" style={{ minHeight: '160px', maxHeight: '200px' }}>
                       <img 
-                        src="/projects/tec-demos/tec-clock-assembly.jpg" 
+                        src={getImagePath('/projects/tec-demos/tec-clock-assembly.jpg')} 
                         alt="TEC Clock Assembly Pop-up Factory"
                         className="max-w-full max-h-full object-cover hover:scale-105 transition-transform duration-300"
                         style={{ maxHeight: '180px', transform: 'scale(1.62) translateY(20px)' }}

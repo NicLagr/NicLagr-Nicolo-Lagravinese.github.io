@@ -1,35 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { getImagePath } from '../../utils/imagePath';
 
 const PassionGrid = () => {
   const passions = [
     {
-      icon: '/assets/xp-icons/Windows XP Icons/My Videos.png',
+      icon: getImagePath('/assets/xp-icons/Windows XP Icons/My Videos.png'),
       title: 'Movies',
       description: 'Letterboxd addict with 500+ logged films'
     },
     {
-      icon: '/assets/xp-icons/gamepad.png',
+      icon: getImagePath('/assets/xp-icons/gamepad.png'),
       title: 'Games',
       description: 'Narrative and atmosphere first (Majora\'s Mask, RDR2)'
     },
     {
-      icon: '/assets/xp-icons/Windows XP Icons/My Music.png',
+      icon: getImagePath('/assets/xp-icons/Windows XP Icons/My Music.png'),
       title: 'Music',
       description: 'Steely Dan on repeat while coding'
     },
     {
-      icon: '/assets/xp-icons/Windows XP Icons/Power.png',
+      icon: getImagePath('/assets/xp-icons/Windows XP Icons/Power.png'),
       title: 'Fitness',
       description: 'Tennis + lifting keep me sharp'
     },
     {
-      icon: '/assets/xp-icons/Windows XP Icons/My Pictures.png',
+      icon: getImagePath('/assets/xp-icons/Windows XP Icons/My Pictures.png'),
       title: 'Photography',
       description: 'Composition and moments'
     },
     {
-      icon: '/assets/xp-icons/globe.png',
+      icon: getImagePath('/assets/xp-icons/globe.png'),
       title: 'Exploration',
       description: 'History, design, and tech rabbit holes'
     }
@@ -60,7 +61,7 @@ const PassionGrid = () => {
       {/* Vaporwave grid background */}
       <div className="absolute inset-0 opacity-10">
         <img 
-          src="/vapor/grid.png" 
+          src={getImagePath('/vapor/grid.png')} 
           alt="" 
           className="w-full h-full object-cover"
           style={{ transform: 'perspective(1000px) rotateX(60deg) translateZ(-200px)' }}
@@ -69,13 +70,13 @@ const PassionGrid = () => {
 
       {/* Floating vaporwave elements */}
       <div className="absolute top-20 left-20 w-24 h-24 opacity-20 float-slow">
-        <img src="/vapor/sphere.png" alt="" className="w-full h-full object-contain" />
+        <img src={getImagePath('/vapor/sphere.png')} alt="" className="w-full h-full object-contain" />
       </div>
       <div className="absolute top-40 right-32 w-16 h-16 opacity-15 float-slow" style={{ animationDelay: '3s' }}>
-        <img src="/vapor/torus.png" alt="" className="w-full h-full object-contain" />
+        <img src={getImagePath('/vapor/torus.png')} alt="" className="w-full h-full object-contain" />
       </div>
       <div className="absolute bottom-32 left-1/4 w-20 h-20 opacity-20 float-slow" style={{ animationDelay: '6s' }}>
-        <img src="/vapor/column.png" alt="" className="w-full h-full object-contain" />
+        <img src={getImagePath('/vapor/column.png')} alt="" className="w-full h-full object-contain" />
       </div>
 
       {/* Subtle MTV logo near music card */}
