@@ -9,7 +9,6 @@ export default function RetroWindow({
   onMinimize,
   isActive = true,
   showStatusBar = true,
-  statusBar,
   onDragStart 
 }) {
   const [isMaximized, setIsMaximized] = useState(false);
@@ -81,9 +80,7 @@ export default function RetroWindow({
       
       {showStatusBar && (
         <div className="status-bar bg-gray-200 border-t border-gray-400">
-          <p className="status-bar-field text-xs">
-            {statusBar || 'Ready'}
-          </p>
+          <p className="status-bar-field text-xs">Ready</p>
           <p className="status-bar-field text-xs">
             {new Date().toLocaleTimeString()}
           </p>

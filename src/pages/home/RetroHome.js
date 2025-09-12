@@ -11,7 +11,7 @@ import NurtureNest from '../projects/NurtureNest';
 import MissionControl from '../projects/MissionControl';
 import TECDemoEngineering from '../projects/TECDemoEngineering';
 import PortfolioWebpage from '../projects/PortfolioWebpage';
-import AboutPage from '../about';
+import AboutPage from '../about/AboutPage';
 
 const RetroHome = () => {
   const [currentView, setCurrentView] = useState('hero');
@@ -58,11 +58,11 @@ const RetroHome = () => {
       onBack={() => setCurrentView('games')} 
       onBackToProjects={() => setCurrentView('projects')}
     />,
+    about: <AboutPage onBack={() => setCurrentView('hero')} />,
     nurtureNest: <NurtureNest onBack={() => setCurrentView('projects')} />,
     missionControl: <MissionControl onBack={() => setCurrentView('projects')} />,
     tecDemoEngineering: <TECDemoEngineering onBack={() => setCurrentView('projects')} />,
-    portfolioWebpage: <PortfolioWebpage onBack={() => setCurrentView('projects')} />,
-    about: <AboutPage onBack={() => setCurrentView('hero')} />
+    portfolioWebpage: <PortfolioWebpage onBack={() => setCurrentView('projects')} />
   };
 
   return (
@@ -130,6 +130,14 @@ const RetroHome = () => {
               className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setCurrentView('about')}
+            >
+              ABOUT.exe
+            </motion.button>
+            <motion.button
+              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('projects')}
             >
               PROJECTS.exe
@@ -150,8 +158,8 @@ const RetroHome = () => {
       {bootComplete && currentView !== 'desktop' && (
         <div className="fixed bottom-4 left-4 z-40 font-mono text-xs text-vw-cyan/60">
           <div className="bg-black/50 backdrop-blur-sm p-2 rounded border border-vw-cyan/30">
-            <div>NICOLO OS v2.0.24</div>
-            <div>MEM: {Math.floor(Math.random() * 100)}% USED</div>
+            <div>NICOLO OS v2.0.25</div>
+            <div>MEM: 93% USED</div>
             <div>STATUS: OPERATIONAL</div>
           </div>
         </div>

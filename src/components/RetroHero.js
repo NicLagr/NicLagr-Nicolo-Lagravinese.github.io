@@ -327,6 +327,21 @@ const RetroHero = ({ onNavigate }) => {
           >
             LAUNCH PORTFOLIO.EXE
           </motion.button>
+
+          <motion.button
+            className="px-8 py-3 bg-transparent border-2 border-vw-pink text-vw-pink font-bold rounded-lg hover:bg-vw-pink hover:text-black transition-all"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 79, 216, 0.3)' }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              showLoading();
+              setTimeout(() => {
+                onNavigate && onNavigate('about');
+                hideLoading();
+              }, 800);
+            }}
+          >
+            ABOUT ME.EXE
+          </motion.button>
           
           <motion.button
             className="px-8 py-3 bg-transparent border-2 border-vw-cyan text-vw-cyan font-bold rounded-lg hover:bg-vw-cyan hover:text-black transition-all"

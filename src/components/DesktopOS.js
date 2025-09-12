@@ -125,13 +125,7 @@ const DesktopOS = ({ children, onNavigate }) => {
             style={{ left: icon.x, top: icon.y }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onDoubleClick={() => {
-              if (icon.id === 'about') {
-                onNavigate && onNavigate('about');
-              } else {
-                openWindow(icon.id);
-              }
-            }}
+            onDoubleClick={() => openWindow(icon.id)}
           >
             <div className="mb-2 filter drop-shadow-lg flex justify-center">
               <img src={icon.icon} alt={icon.name} className="w-12 h-12" />
@@ -263,8 +257,8 @@ const DesktopOS = ({ children, onNavigate }) => {
                     className="w-full px-4 py-2 text-left text-sm hover:bg-blue-100 flex items-center gap-3"
                     whileHover={{ backgroundColor: '#dbeafe' }}
                     onClick={() => {
-                      setShowStartMenu(false);
                       onNavigate && onNavigate('about');
+                      setShowStartMenu(false);
                     }}
                   >
                     <span>ℹ️</span>

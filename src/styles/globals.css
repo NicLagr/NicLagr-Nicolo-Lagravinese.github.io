@@ -399,6 +399,141 @@ body::after {
   100% { transform: skew(0deg); }
 }
 
+/* Vaporwave About Page Utilities */
+@keyframes floatSlow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 79, 216, 0.4)); }
+  50% { filter: drop-shadow(0 0 30px rgba(255, 79, 216, 0.6)); }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes vhsGlitch {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-2px); }
+  20% { transform: translateX(2px); }
+  30% { transform: translateX(-1px); }
+  40% { transform: translateX(1px); }
+  50% { transform: translateX(0); }
+  60% { transform: translateX(-1px); }
+  70% { transform: translateX(1px); }
+  80% { transform: translateX(-2px); }
+  90% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes floatWireframe {
+  0% { transform: translateY(0px) rotateY(0deg); }
+  25% { transform: translateY(-15px) rotateY(90deg); }
+  50% { transform: translateY(-8px) rotateY(180deg); }
+  75% { transform: translateY(-20px) rotateY(270deg); }
+  100% { transform: translateY(0px) rotateY(360deg); }
+}
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.float-wireframe {
+  animation: floatWireframe 12s ease-in-out infinite;
+}
+
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.wireframe-glow {
+  filter: drop-shadow(0 0 15px rgba(100, 233, 255, 0.4));
+}
+
+.neon-horizon {
+  box-shadow: 
+    0 0 20px rgba(100, 233, 255, 0.6),
+    0 0 40px rgba(255, 79, 216, 0.4),
+    inset 0 1px 0 rgba(100, 233, 255, 0.8);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.bg-scanlines {
+  background-image: linear-gradient(
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.02) 2px,
+    rgba(255, 255, 255, 0.02) 4px
+  );
+  background-size: 100% 4px;
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.text-neon {
+  background: linear-gradient(90deg, #ff4fd8, #64e9ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-neon-purple {
+  background: linear-gradient(90deg, #8a7dff, #35d0c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.glass-card {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-dark {
+  backdrop-filter: blur(16px);
+  background: rgba(13, 16, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.bg-vaporwave-gradient {
+  background: linear-gradient(135deg, 
+    #ff4fd8 0%, 
+    #8a7dff 35%, 
+    #64e9ff 70%, 
+    #35d0c8 100%);
+}
+
+.bg-vaporwave-dark {
+  background: linear-gradient(135deg, 
+    #0d1026 0%, 
+    #1a0b2e 50%, 
+    #0d1026 100%);
+}
+
 /* Print styles */
 @media print {
   .no-print {
