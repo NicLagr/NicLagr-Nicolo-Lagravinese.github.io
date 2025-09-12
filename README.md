@@ -1,12 +1,12 @@
-# Nicolò Lagravinese - Portfolio
+# Nicolo Lagravinese - Portfolio
 
 A modern, accessible portfolio website showcasing full-stack development, cloud infrastructure, and hardware integration projects.
 
-## 🚀 Live Site
+## Live Site
 
 Visit: [https://niclagr.github.io](https://niclagr.github.io)
 
-## ✨ Features
+## Features
 
 - **Dual Theme System**: Toggle between Vaporwave/Y2K and Modern Minimal themes
 - **Interactive Centerpiece**: Floating orb with parallax effects and project shortcuts
@@ -15,7 +15,7 @@ Visit: [https://niclagr.github.io](https://niclagr.github.io)
 - **Responsive Design**: Mobile-first approach with smooth animations
 - **Cursor Trail**: Decorative cursor effects (respects reduced motion preferences)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 18** - Component framework
 - **Framer Motion** - Animation library
@@ -23,7 +23,7 @@ Visit: [https://niclagr.github.io](https://niclagr.github.io)
 - **React Router** - Client-side routing
 - **React Helmet** - SEO optimization
 
-## 🏗️ Build Instructions
+## Build Instructions
 
 ### Prerequisites
 
@@ -34,10 +34,10 @@ Visit: [https://niclagr.github.io](https://niclagr.github.io)
 
 ```bash
 # Clone the repository
-git clone https://github.com/NicLagr/NicLagr-Nicolo-Lagravinese.github.io.git
+git clone https://github.com/NicLagr/NicLagr.github.io.git
 
 # Navigate to project directory
-cd NicLagr-Nicolo-Lagravinese.github.io
+cd NicLagr.github.io
 
 # Install dependencies (using Yarn - recommended)
 yarn install
@@ -66,7 +66,7 @@ yarn deploy
 # npm run deploy
 ```
 
-## 🎨 Design Decisions
+## Design Decisions
 
 ### Theme System
 
@@ -153,7 +153,7 @@ All project data and experience information is sourced from the provided resume 
 - **Hardware/IoT specialization** as a differentiator
 - **Availability for co-op** positions
 
-## 🔧 Development Notes
+## Development Notes
 
 ### CSS Custom Properties
 
@@ -186,7 +186,7 @@ The theme system uses CSS custom properties for dynamic theming:
 - Graceful degradation for older browsers
 - Progressive enhancement approach
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 Target Lighthouse scores:
 - **Performance**: ≥95
@@ -194,14 +194,14 @@ Target Lighthouse scores:
 - **Best Practices**: ≥95
 - **SEO**: ≥95
 
-## 🤝 Contributing
+## Contributing
 
 This is a personal portfolio, but feedback and suggestions are welcome! Please open an issue for any bugs or improvement ideas.
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-Built with ❤️ using React, Tailwind CSS, and Framer Motion.
+Built with React, Tailwind CSS, and Framer Motion.
