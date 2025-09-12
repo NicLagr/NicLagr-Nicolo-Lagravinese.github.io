@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import RetroWindow from '../../components/RetroWindow';
 import MediaGallery from '../../components/MediaGallery';
+import { getImagePath } from '../../utils/imagePath';
 
 // Import XP icons
 import playIcon from '../../assets/xp-icons/play.png';
@@ -72,9 +73,9 @@ const NurtureNest = ({ onBack }) => {
       figma: 'https://www.figma.com/design/Wmpak0IXc9ifhoikoxJT3F/IGH-2%2F3?node-id=0-1&m=dev&t=vhEOihw0qJa52DHC-1'
     },
     media: {
-      hero: '/projects/nurture-nest/hero.jpg',
+      hero: getImagePath('/projects/nurture-nest/hero.jpg'),
       gallery: [
-        '/projects/nurture-nest/research-poster.jpg'
+        getImagePath('/projects/nurture-nest/research-poster.jpg')
       ]
     }
   };

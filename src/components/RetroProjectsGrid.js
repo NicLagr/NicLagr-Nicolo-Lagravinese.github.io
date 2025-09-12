@@ -71,7 +71,7 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
       tech: ['React', 'Figma', 'UX Design', 'Healthcare', 'Accessibility'],
       description: 'Maternal health app with UX and frontend for health information and monitoring. Focused on accessibility for communities in Ghana.',
       status: 'DEV',
-      image: '/projects/nurture-nest/hero.jpg',
+      image: getImagePath('/projects/nurture-nest/hero.jpg'),
       color: 'from-vw-pink to-vw-cyan'
     },
     {

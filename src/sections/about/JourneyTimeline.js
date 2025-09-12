@@ -11,31 +11,31 @@ const JourneyTimeline = () => {
       title: 'CS + Interaction Design',
       subtitle: 'Northeastern',
       description: 'Foundation in human-centered design and technical systems',
-      icon: '/assets/xp-icons/graduation.png'
+      icon: getImagePath('/assets/xp-icons/graduation.png')
     },
     {
       title: 'Tulip Co-op → Product Support',
       subtitle: 'Hardware + IoT demos',
       description: 'Bridging physical and digital experiences',
-      icon: '/assets/xp-icons/factory.png'
+      icon: getImagePath('/assets/xp-icons/factory.png')
     },
     {
       title: 'Mission Control 3.0',
       subtitle: 'Redshift + React + 3D viz',
       description: 'Real-time data visualization for complex systems',
-      icon: '/assets/xp-icons/rocket.png'
+      icon: getImagePath('/assets/xp-icons/rocket.png')
     },
     {
       title: 'Personal Projects',
       subtitle: 'Widgets, games, vaporwave experiments',
       description: 'Exploring playful interfaces and creative expression',
-      icon: '/assets/xp-icons/tools.png'
+      icon: getImagePath('/assets/xp-icons/tools.png')
     },
     {
       title: 'Next',
       subtitle: 'Build joyful systems that scale',
       description: 'Creating tools that feel magical at any size',
-      icon: '/assets/xp-icons/target.png'
+      icon: getImagePath('/assets/xp-icons/target.png')
     }
   ];
 
