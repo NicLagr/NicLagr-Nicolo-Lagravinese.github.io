@@ -129,8 +129,8 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
   return (
     <div className="min-h-screen bg-black text-white p-6">
       {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-4 mb-4">
+      <div className="mb-8 pt-4 md:pt-0">
+        <div className="flex items-center gap-4 mb-4 pr-16 md:pr-0">
           {onBack && (
             <motion.button
               className="px-4 py-2 bg-gray-800 border border-gray-600 text-vw-cyan font-mono text-sm hover:bg-gray-700 transition-colors"
@@ -142,7 +142,7 @@ const RetroProjectsGrid = ({ onBack, onNavigate }) => {
             </motion.button>
           )}
           <motion.h1 
-            className="text-4xl font-bold font-mono aberration"
+            className="text-2xl md:text-4xl font-bold font-mono aberration"
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
           >
