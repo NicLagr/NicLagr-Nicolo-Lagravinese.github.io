@@ -468,6 +468,9 @@ const MissionControl = ({ onBack }) => {
                         Due to the proprietary nature of this project and Tulip's confidentiality requirements, 
                         detailed code samples and production screenshots cannot be shared publicly. The demo video 
                         and design mockups shown represent development work and conceptual designs created during the project.
+                        All numbers and data visualizations depicted are from development mockups and early development builds - 
+                        accurate production data visualizations are confidential and cannot be shown. The images presented 
+                        do not and cannot show the final product implementation.
                       </p>
                     </div>
                   </section>

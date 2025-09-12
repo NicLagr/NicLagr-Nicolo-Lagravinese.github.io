@@ -165,8 +165,8 @@ const RetroHero = ({ onNavigate }) => {
         />
       </div>
 
-      {/* Floating Geometric Shapes */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating Geometric Shapes - Hidden on Mobile */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
@@ -194,26 +194,26 @@ const RetroHero = ({ onNavigate }) => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-sm md:max-w-4xl mx-auto px-4 md:px-6">
         {/* Terminal Window */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-8 bg-black border-2 border-gray-600 rounded-lg shadow-2xl overflow-hidden"
+          className="mb-4 md:mb-8 bg-black border-2 border-gray-600 rounded-lg shadow-2xl overflow-hidden"
         >
           {/* Terminal Header */}
-          <div className="bg-gradient-to-r from-gray-700 to-gray-600 px-4 py-2 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-gray-700 to-gray-600 px-2 md:px-4 py-2 flex items-center justify-between">
             <div className="flex gap-2">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
               <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
             </div>
-            <div className="text-white text-sm font-mono">Terminal - {currentTime.toLocaleTimeString()}</div>
+            <div className="text-white text-xs md:text-sm font-mono">Terminal - {currentTime.toLocaleTimeString()}</div>
           </div>
           
           {/* Terminal Content */}
-          <div className="p-6 font-mono text-left">
+          <div className="p-3 md:p-6 font-mono text-left text-xs md:text-base">
             <AnimatePresence>
               {terminalLines.map((line, index) => (
                 <motion.div
@@ -247,7 +247,7 @@ const RetroHero = ({ onNavigate }) => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 2.5, duration: 0.8 }}
-          className={`text-6xl md:text-8xl font-bold mb-6 ${
+          className={`text-3xl md:text-8xl font-bold mb-3 md:mb-6 ${
             isGlitching ? 'text-red-500' : 'text-white'
           } aberration font-mono tracking-wider`}
           style={{
@@ -264,7 +264,7 @@ const RetroHero = ({ onNavigate }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
-          className="text-xl md:text-2xl text-vw-cyan mb-8 font-mono"
+          className="text-sm md:text-2xl text-vw-cyan mb-4 md:mb-8 font-mono"
         >
           I{' '}
           <GlitchText 
@@ -281,15 +281,15 @@ const RetroHero = ({ onNavigate }) => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 3.5 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8"
         >
           {[
             { label: 'Age', value: '20', color: 'text-vw-pink', isStatic: true },
             { label: 'Steam Games Owned', value: steamGames, color: 'text-vw-cyan', isLoading: isSteamLoading },
             { label: 'Late Night Commits', value: '∞', color: 'text-vw-purple', isStatic: true }
           ].map((stat, index) => (
-            <div key={index} className="bg-black/50 backdrop-blur-sm border border-white/20 rounded-lg p-4">
-              <div className={`text-3xl font-bold ${stat.color} font-mono`}>
+            <div key={index} className="bg-black/50 backdrop-blur-sm border border-white/20 rounded-lg p-2 md:p-4">
+              <div className={`text-xl md:text-3xl font-bold ${stat.color} font-mono`}>
                 {stat.isLoading ? (
                   <LoadingGlitch 
                     isLoading={stat.isLoading}
@@ -301,7 +301,7 @@ const RetroHero = ({ onNavigate }) => {
                   stat.value
                 )}
               </div>
-              <div className="text-white/80 text-sm">{stat.label}</div>
+              <div className="text-white/80 text-xs md:text-sm">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -311,10 +311,10 @@ const RetroHero = ({ onNavigate }) => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center"
         >
           <motion.button
-            className="px-8 py-3 bg-gradient-to-r from-vw-pink to-vw-purple text-white font-bold rounded-lg shadow-lg border border-white/20 hover:shadow-xl transition-all"
+            className="px-6 md:px-8 py-3 bg-gradient-to-r from-vw-pink to-vw-purple text-white font-bold rounded-lg shadow-lg border border-white/20 md:hover:shadow-xl transition-all text-sm md:text-base"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 79, 216, 0.5)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
@@ -329,7 +329,7 @@ const RetroHero = ({ onNavigate }) => {
           </motion.button>
 
           <motion.button
-            className="px-8 py-3 bg-transparent border-2 border-vw-pink text-vw-pink font-bold rounded-lg hover:bg-vw-pink hover:text-black transition-all"
+            className="px-6 md:px-8 py-3 bg-transparent border-2 border-vw-pink text-vw-pink font-bold rounded-lg md:hover:bg-vw-pink md:hover:text-black transition-all text-sm md:text-base"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 79, 216, 0.3)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
@@ -344,7 +344,7 @@ const RetroHero = ({ onNavigate }) => {
           </motion.button>
           
           <motion.button
-            className="px-8 py-3 bg-transparent border-2 border-vw-cyan text-vw-cyan font-bold rounded-lg hover:bg-vw-cyan hover:text-black transition-all"
+            className="px-6 md:px-8 py-3 bg-transparent border-2 border-vw-cyan text-vw-cyan font-bold rounded-lg md:hover:bg-vw-cyan md:hover:text-black transition-all text-sm md:text-base"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(51, 225, 255, 0.3)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
