@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/NicoloLagr.github.io/static/css/main.a5c8c644.css",
-    "main.js": "/NicoloLagr.github.io/static/js/main.0abd640a.js",
+    "main.js": "/NicoloLagr.github.io/static/js/main.9b6224b7.js",
     "static/media/computer.png": "/NicoloLagr.github.io/static/media/computer.c594c0be26f379aa824f.png",
     "static/media/github.png": "/NicoloLagr.github.io/static/media/github.4532b4d2b6dd176c83e5.png",
     "static/media/factory.png": "/NicoloLagr.github.io/static/media/factory.9303f556bc1e8e33a796.png",
@@ -37,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.a5c8c644.css",
-    "static/js/main.0abd640a.js"
+    "static/js/main.9b6224b7.js"
   ]
 }
