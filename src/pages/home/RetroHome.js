@@ -110,7 +110,7 @@ const RetroHome = () => {
       {/* Desktop Navigation - hidden on mobile */}
       {bootComplete && currentView !== 'desktop' && showNavButtons && (
         <motion.div 
-          className="fixed top-4 left-4 z-50 hidden md:block"
+          className="fixed top-4 right-4 z-50 hidden md:block"
           initial={{ opacity: 1, y: 0 }}
           animate={{ 
             opacity: showNavButtons ? 1 : 0,
