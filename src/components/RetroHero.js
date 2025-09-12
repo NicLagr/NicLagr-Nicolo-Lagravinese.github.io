@@ -311,10 +311,10 @@ const RetroHero = ({ onNavigate }) => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 4 }}
-          className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 md:gap-4 justify-center"
         >
           <motion.button
-            className="px-6 md:px-8 py-3 bg-gradient-to-r from-vw-pink to-vw-purple text-white font-bold rounded-lg shadow-lg border border-white/20 md:hover:shadow-xl transition-all text-sm md:text-base"
+            className="px-8 md:px-8 py-4 md:py-3 bg-gradient-to-r from-vw-pink to-vw-purple text-white font-bold rounded-lg shadow-lg border border-white/20 md:hover:shadow-xl transition-all text-base md:text-base min-h-[52px]"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 79, 216, 0.5)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
@@ -329,7 +329,7 @@ const RetroHero = ({ onNavigate }) => {
           </motion.button>
 
           <motion.button
-            className="px-6 md:px-8 py-3 bg-transparent border-2 border-vw-pink text-vw-pink font-bold rounded-lg md:hover:bg-vw-pink md:hover:text-black transition-all text-sm md:text-base"
+            className="px-8 md:px-8 py-4 md:py-3 bg-transparent border-2 border-vw-pink text-vw-pink font-bold rounded-lg md:hover:bg-vw-pink md:hover:text-black transition-all text-base md:text-base min-h-[52px]"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 79, 216, 0.3)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
@@ -344,7 +344,7 @@ const RetroHero = ({ onNavigate }) => {
           </motion.button>
           
           <motion.button
-            className="px-6 md:px-8 py-3 bg-transparent border-2 border-vw-cyan text-vw-cyan font-bold rounded-lg md:hover:bg-vw-cyan md:hover:text-black transition-all text-sm md:text-base"
+            className="px-8 md:px-8 py-4 md:py-3 bg-transparent border-2 border-vw-cyan text-vw-cyan font-bold rounded-lg md:hover:bg-vw-cyan md:hover:text-black transition-all text-base md:text-base min-h-[52px]"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(51, 225, 255, 0.3)' }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {

@@ -117,9 +117,9 @@ const RetroHome = () => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="flex gap-2">
+          <div className="flex flex-col md:flex-row gap-3 md:gap-2">
             <motion.button
-              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
+              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('hero')}
@@ -127,7 +127,7 @@ const RetroHome = () => {
               HOME.exe
             </motion.button>
             <motion.button
-              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
+              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('about')}
@@ -135,7 +135,7 @@ const RetroHome = () => {
               ABOUT.exe
             </motion.button>
             <motion.button
-              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
+              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('projects')}
@@ -143,7 +143,7 @@ const RetroHome = () => {
               PROJECTS.exe
             </motion.button>
             <motion.button
-              className="px-4 py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 hover:bg-vw-pink/80 transition-colors font-mono text-sm"
+              className="px-6 md:px-4 py-3 md:py-2 bg-vw-purple/80 backdrop-blur-sm text-white rounded border border-vw-pink/50 md:hover:bg-vw-pink/80 transition-colors font-mono text-base md:text-sm min-h-[48px] md:min-h-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentView('desktop')}
@@ -154,9 +154,9 @@ const RetroHome = () => {
         </motion.div>
       )}
 
-      {/* Retro System Info - only show when not on desktop */}
+      {/* Retro System Info - hidden on mobile to prevent overlap */}
       {bootComplete && currentView !== 'desktop' && (
-        <div className="fixed bottom-4 left-4 z-40 font-mono text-xs text-vw-cyan/60">
+        <div className="fixed bottom-4 left-4 z-40 font-mono text-xs text-vw-cyan/60 hidden md:block">
           <div className="bg-black/50 backdrop-blur-sm p-2 rounded border border-vw-cyan/30">
             <div>NICOLO OS v2.0.25</div>
             <div>MEM: 93% USED</div>
