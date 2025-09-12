@@ -3,9 +3,9 @@ export const getImagePath = (path) => {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
   
-  // In production, prepend the subdirectory path
+  // In production, use root path since this is now a user site (username.github.io)
   if (process.env.NODE_ENV === 'production') {
-    return `/NicoloLagr.github.io/${cleanPath}`;
+    return `/${cleanPath}`;
   }
   
   // In development, use the path as-is with leading slash
