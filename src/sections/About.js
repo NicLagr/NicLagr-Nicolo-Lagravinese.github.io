@@ -124,7 +124,7 @@ const About = () => {
               whileTap={{ scale: 0.95 }}
             >
               <a
-                href={getImagePath('/NICOLO_LAGRAVINESE_Resume.pdf')}
+                href={getImagePath('/Resume_Final_Reviewed.pdf')}
                 download
                 className="btn-primary inline-flex items-center space-x-2"
               >
